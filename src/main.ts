@@ -1,5 +1,17 @@
-import { createApp } from 'vue'
-import App from './App.vue'
-import router from './router'
 
-createApp(App).use(router).mount('#app')
+import registerVueModule from '@/core'
+
+import { Demo1Module } from '@/modules/Demo1'
+import { Demo2Module } from '@/modules/Demo2'
+import { Demo3Module } from '@/modules/Demo3'
+import { Demo4Module } from '@/modules/Demo4'
+
+// import '@/styles/main.scss'
+
+registerVueModule({
+}, [
+  Demo1Module,
+  Demo2Module,
+  Demo3Module,
+  Demo4Module
+])
