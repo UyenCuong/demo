@@ -3,7 +3,9 @@
       <ul class="todoItem__list"
         v-for="(todo, index) in todoProps" :key="index">
           <li class="todoItem__list--title">
-              <p class="todoItem__list--text">{{ todo.title }}</p>
+              <p class="todoItem__list--text"
+               :class="{'is-completed': todo.completed}"
+              >{{ todo.title }}</p>
               <input type="checkbox">
         <button>Delete</button>
           </li>
@@ -24,9 +26,6 @@ export default {
 </script>
 
 <style lang="scss">
-$max-widthItem :450px;
-$max-heightItem: 200px;
-$background-colorItem: rgba(255, 255, 255, 0.2);
 .todoItem {
   margin-top: 30px;
   overflow-x: hidden;
@@ -45,15 +44,18 @@ $background-colorItem: rgba(255, 255, 255, 0.2);
         justify-content: space-between;
         align-items: center;
         padding: 0 35px;
-        .todoItem__list--text {
-            text-align: left;
-            width: 300px;
-            overflow: hidden;
-            word-break: break-all;
-            line-height: 50px;
-            -webkit-line-clamp: 3;
-            -webkit-box-orient: vertical;
-            max-width: 300px;
+      .todoItem__list--text {
+        text-align: left;
+        width: 300px;
+        overflow: hidden;
+        word-break: break-all;
+        line-height: 50px;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        max-width: 300px;
+        .is-completed {
+        text-decoration: line-through;
+}
         }
     }
   }

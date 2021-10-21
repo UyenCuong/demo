@@ -7,20 +7,21 @@
  </div>
 </template>
 <script lang="ts">
+import { ref } from 'vue'
 
 export default {
   setup () {
+    const title = ref<string>('Todo List')
+    const target = ref<string>('Get thing done, one item at a time.')
     return {
-      title: 'Todo List',
-      target: ' Get thing done, one item at a time.'
+      title,
+      target
     }
   }
 }
 </script>
 
 <style lang="scss">
-$background-white: white;
-$font-weight: 300;
 .header {
     font-weight: $font-weight;
     margin: 35px 35px 0 35px;

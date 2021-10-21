@@ -1,5 +1,5 @@
 <template>
-<div id="todo">
+<div class="todo">
    <TodoHeader />
    <TodoItem
    :todoProps="todos" />
@@ -7,8 +7,8 @@
 </template>
 <script lang="ts">
 import { ref } from 'vue'
-import TodoHeader from '@/modules/Demo1/views/Todolist-Header/TodoHeader.vue'
-import TodoItem from '@/modules/Demo1/views/Todolist-Content/TodoItem.vue'
+import TodoHeader from '@/modules/Demo1/components/Todolist-Header/TodoHeader.vue'
+import TodoItem from '@/modules/Demo1/components/Todolist-Content/TodoItem.vue'
 export default {
   components: {
     TodoHeader,
@@ -29,15 +29,7 @@ export default {
 </script>
 
 <style lang="scss">
-$background-widget : #ff7675;
-$color-white: white;
-$width-app: 450px;
-$height-app: 470px;
-body {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  #todo {
+.todo {
     background-color: $background-widget;
     color: $color-white;
     width: $width-app;
@@ -46,6 +38,6 @@ body {
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-  }
+
 }
 </style>
