@@ -11,13 +11,19 @@
 </template>
 
 <style lang="scss">
+#nav {
+  background-color: hsl(0, 0%, 93%);
+  height: $height;
+  text-align: center;
+  width: 100%
+}
 .color {
   color: $promaryColor
 }
-.demo1, .demo2, demo3, .demo4 {
+.demo1, .demo2, .demo3, .demo4 {
   margin: 20px;
+  text-decoration: none;
 }
 .container {
-  text-align: center;
 }
 </style>

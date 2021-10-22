@@ -1,16 +1,24 @@
 <template>
   <div class="todoItem">
-      <ul class="todoItem__list"
-        v-for="(todo, index) in todoProps" :key="index">
-          <li class="todoItem__list--title">
-              <p class="todoItem__list--text"
-               :class="{'is-completed': todo.completed}"
-              >{{ todo.title }}</p>
-              <input type="checkbox">
-        <button>Delete</button>
-          </li>
-      </ul>
+    <ul class="todoItem__list"
+      v-for="(todo, index) in todoProps"
+      :key="index">
+        <li class="todoItem__list--title">
+          <p class="todoItem__list--text"
+            :class="{'is-completed': todo.completed}">
+            {{ todo.title }}</p>
+          <input type="checkbox"
+            v-model="todo.completed">
+          <button @click="removeItemTodo(index)">
+            Delete
+          </button>
+        </li>
+    </ul>
   </div>
+    <h4 class="empty__list"
+        v-if="todoProps.length === 0">
+        Empty list.
+    </h4>
 </template>
 
 <script lang="ts">
@@ -20,6 +28,9 @@ export default {
   props: {
     todoProps: {
       type: Array
+    },
+    removeItemTodo: {
+      type: Object
     }
   }
 }
@@ -44,7 +55,7 @@ export default {
         justify-content: space-between;
         align-items: center;
         padding: 0 35px;
-      .todoItem__list--text {
+    .todoItem__list--text {
         text-align: left;
         width: 300px;
         overflow: hidden;
@@ -53,11 +64,14 @@ export default {
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         max-width: 300px;
-        .is-completed {
-        text-decoration: line-through;
-}
         }
     }
   }
+}
+.is-completed {
+  text-decoration: line-through;
+}
+.empty__list {
+  text-align: center;
 }
 </style>

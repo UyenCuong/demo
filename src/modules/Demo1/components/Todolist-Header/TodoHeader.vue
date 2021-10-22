@@ -1,9 +1,11 @@
 <template>
   <div class="header">
-     <h1>{{ title }}</h1>
-     <p>
-         {{ target }}
-     </p>
+   <h1>
+     {{ title }}
+   </h1>
+   <p>
+     {{ target }}
+   </p>
  </div>
 </template>
 <script lang="ts">
