@@ -1,6 +1,6 @@
 <template>
 <div class="content">
-    <header class="header-content">
+  <header class="header-content">
     <h3>{{ title }}</h3>
   </header>
   <main class="main-content">
@@ -9,7 +9,8 @@
   </main>
   <footer class="footer-content">
     <h4>{{ findout }}</h4>
-  </footer></div>
+  </footer>
+</div>
 </template>
 
 <script lang="ts">

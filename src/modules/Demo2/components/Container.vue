@@ -1,6 +1,6 @@
 <template>
   <div class="product-image">
-       <img v-bind:src="image" width="200" height="300">
+       <img v-bind:src="image" width="200" height="260">
   </div>
 </template>
 

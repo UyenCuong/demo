@@ -22,7 +22,7 @@ export default {
 <style lang="scss">
 .travel {
   background-color: #eedfcc;
-  height: 600px;
+  height: 330px;
 }
 .travel__content{
   display: flex;
@@ -30,7 +30,7 @@ export default {
   height: 260px;
   background-color:$color-white;
   position: absolute;
-  top: 50%;
+  top: 35%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;
