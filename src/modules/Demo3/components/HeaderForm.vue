@@ -1,32 +1,51 @@
 <template>
-  <form class="form-input">
+  <div class="headerform">
+   <form class="form-input">
     <div class="form-input-name">
       <h4>Name</h4>
-      <input type="text">
+      <input type="text" class="headerform__input">
     </div>
     <div class="form-input-email">
       <h4>Email</h4>
-      <input type="email">
+      <input type="email"  class="headerform__input">
     </div>
     <div class="form-input-team">
       <h4>Team Member</h4>
-      <select v-model="select" name="member" id="select-team-member">
-        <option value="">Team 1</option>
-        <option value="">Team 2</option>
-        <option value="">Team 3</option>
-        <option value="">Team 4</option>
-        <option value="">Team 5</option>
-      </select>
+     <select class="headerform__input">
+    <option v-for="option in options" :value="option.text" :key="option.text">
+      {{ option.text }}
+    </option>
+     </select>
     </div>
   </form>
+ </div>
 </template>
 
-<script>
-export default {
-
+<script lang="ts">
+interface options {
+  text: string
 }
-</script>
+export default {
+  setup () {
+    const options:Array<options> = [
+      { text: 'Team1' },
+      { text: 'Team2' },
+      { text: 'Team3' }
+    ]
+    return {
+      options
+    }
+  }
+}
+</script >
 
-<style>
-
+<style lang="scss">
+.headerform {
+    margin-bottom: 20px;
+    position: relative;
+    .headerform__input {
+      width: 100%;
+      height: 32px;
+    }
+}
 </style>
