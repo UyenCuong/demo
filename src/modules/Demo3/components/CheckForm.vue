@@ -12,6 +12,7 @@
               type="checkbox"
               class="form__feature--input"
               v-model="lang.comleted"
+              @change="hasSelect"
             >
             <p>
               {{ lang.name }}
@@ -61,36 +62,28 @@ export default {
         })
       }
     }
-    //     let inputElems = langs.comleted,
-    //     count = 0;
-    //     for (var index=0; index< langs.length; index++) {
-    //       langs.every((item) => {
-    //     if ( item.comleted === true){
-    //          count++;
-    //     }
-    //     if (inputElems === langs.length ){
-    //       item.comleted = !item.comleted
-    //     }
-    //   }
-    // }
-    // if (allSelected.value) {
-    //   langs.every((item) => {
-    //     let inputElems = item.comleted
-    //     if (item.comleted === true && inputElems < 3) {
-    //       item.comleted = true
-    //     }
-    //   })
-    // } else {
-    //   langs.every((item) => {
-    //     if (langs.comleted < langs.length) {
-    //       item.comleted = false
-    //    }
-    //   })
-    // }
+    const hasSelect = () => {
+      const count = countCheck()
+      if (count === langs.length) {
+        allSelected.value = true
+      } else {
+        allSelected.value = false
+      }
+    }
+    const countCheck = () => {
+      let count = 0
+      langs.forEach((item) => {
+        if (item.comleted) {
+          count += 1
+        }
+      })
+      return count
+    }
     return {
       langs,
       allSelected,
-      CheckAll
+      CheckAll,
+      hasSelect
     }
   }
 }
