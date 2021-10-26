@@ -24,18 +24,18 @@ export default {
 
 <style lang="scss">
 .contact {
-  background-color: rgb(0, 225, 255);
-  background-image: linear-gradient(to right,rgb(0, 225, 255) , rgb(83, 43, 226));
-  height: 700px;
+  background-color: $background-colorform;
+  background-image: $background-image;
+  height: $heightform;
   .contact__form {
-    width: 400px;
-    height: 600px;
+    height: $heightcontact__form;
+    width: $widthcontact__form;
     position: relative;
-    background-color: white;
+    background-color: $background-white;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    padding: 50px 24px 40px 24px;
+    padding: $padding-contact__form;
   }
 }
 </style>

@@ -2,12 +2,21 @@
   <h4>Frameworks</h4>
   <form action="" class="formframework">
     <div class="framework">
-      <ul v-for="framework in frameworks" :key="framework.id" class="framework__list">
+      <ul
+        v-for="framework in frameworks"
+        :key="framework.id"
+        class="framework__list"
+      >
         <li class="framework__list--title">
-           <input class="framework__list--input" type="radio" name="lang">
-           <p>{{ framework.title }}</p>
+           <input
+            class="framework__list--input"
+            type="radio" name="lang"
+           >
+           <p>
+             {{ framework.title }}
+           </p>
         </li>
-        </ul>
+      </ul>
     </div>
   </form>
 </template>
@@ -39,15 +48,15 @@ export default {
   .framework {
     align-items: center;
     display: flex;
-    width: 33%;
     .framework__list {
       list-style-type: none;
       text-align: center;
       padding: 0;
     .framework__list--title {
       display: flex;
+      width: $width-distance;
     .framework__list--input {
-      height: 42px;
+      height: $height-form;
     }
     }
     }

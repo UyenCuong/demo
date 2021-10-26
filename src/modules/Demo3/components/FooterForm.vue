@@ -1,26 +1,37 @@
 <template>
   <h4>Feature</h4>
     <form action="" class="form-feature">
-        <div class="form__feature--checked">
-        <ul v-for="lang in langs" :key="lang.name" class="form__feature--list" >
+      <div class="form__feature--checked">
+        <ul
+          v-for="lang in langs"
+          :key="lang.name"
+          class="form__feature--list"
+          >
           <li class="form__feature--title">
-            <input type="checkbox" class="form__feature--input" v-model="lang.comleted">
-        <p>{{ lang.name }}</p>
+            <input
+              type="checkbox"
+              class="form__feature--input"
+              v-model="lang.comleted"
+            >
+            <p>
+              {{ lang.name }}
+            </p>
           </li>
         </ul>
       </div>
-      <div class="form__feature--all">
+      <div class="form__feature--all" @click="CheckAll">
         <input
-        type="checkbox"
-        class="form__feature--input"
-         v-model="allSelected">
+          type="checkbox"
+          class="form__feature--input"
+          v-model="allSelected"
+        >
         <p>CheckAll</p>
       </div>
     </form>
 </template>
 
 <script lang="ts">
-import { computed } from '@vue/reactivity'
+import { ref } from 'vue'
 interface langs {
   id: string;
   name: string;
@@ -33,8 +44,27 @@ export default {
       { id: '2', name: 'Encapsulation', comleted: false },
       { id: '3', name: 'Data Binding', comleted: false }
     ]
+    const allSelected = ref(false)
+    const CheckAll = () => {
+      allSelected.value = !allSelected.value
+      if (allSelected.value) {
+        langs.forEach((item) => {
+          if (!item.comleted) {
+            item.comleted = true
+          }
+        })
+      } else {
+        langs.forEach((item) => {
+          if (item.comleted) {
+            item.comleted = false
+          }
+        })
+      }
+    }
     return {
-      langs
+      langs,
+      allSelected,
+      CheckAll
     }
   }
 }
@@ -46,23 +76,23 @@ export default {
   .form__feature--list {
     padding: 0;
     margin: 0;
-  }
-  .form__feature--title {
-    list-style-type: none;
-    text-align: center;
-    display: flex;
-    padding: 0;
+    .form__feature--title {
+      list-style-type: none;
+      text-align: center;
+      display: flex;
+      padding: 0;
+      width: $width-distance;
     .form__feature--input {
-       height: 42px;
+       height: $height-form;
+    }
     }
   }
 }
 .form__feature--all {
   text-align: center;
   display: flex;
-;
   .form__feature--input {
-       height: 42px;
-}
+       height: $height-form;
+  }
 }
 </style>
