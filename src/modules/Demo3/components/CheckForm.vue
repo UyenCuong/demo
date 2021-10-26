@@ -61,6 +61,32 @@ export default {
         })
       }
     }
+    //     let inputElems = langs.comleted,
+    //     count = 0;
+    //     for (var index=0; index< langs.length; index++) {
+    //       langs.every((item) => {
+    //     if ( item.comleted === true){
+    //          count++;
+    //     }
+    //     if (inputElems === langs.length ){
+    //       item.comleted = !item.comleted
+    //     }
+    //   }
+    // }
+    // if (allSelected.value) {
+    //   langs.every((item) => {
+    //     let inputElems = item.comleted
+    //     if (item.comleted === true && inputElems < 3) {
+    //       item.comleted = true
+    //     }
+    //   })
+    // } else {
+    //   langs.every((item) => {
+    //     if (langs.comleted < langs.length) {
+    //       item.comleted = false
+    //    }
+    //   })
+    // }
     return {
       langs,
       allSelected,

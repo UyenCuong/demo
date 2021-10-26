@@ -9,9 +9,9 @@
 </template>
 
 <script lang="ts">
-import HeaderForm from '@/modules/Demo3/components/HeaderForm.vue'
-import ContentForm from '@/modules/Demo3/components/ContentForm.vue'
-import FooterForm from '@/modules/Demo3/components/FooterForm.vue'
+import HeaderForm from '@/modules/Demo3/components/InputForm.vue'
+import ContentForm from '@/modules/Demo3/components/OptionForm.vue'
+import FooterForm from '@/modules/Demo3/components/CheckForm.vue'
 
 export default {
   components: {
