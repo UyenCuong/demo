@@ -1,5 +1,8 @@
-
+import { createApp } from 'vue'
+import Antd from 'ant-design-vue'
 import registerVueModule from '@/core'
+import 'ant-design-vue/dist/antd.css'
+import App from './core/components/App.vue'
 
 import { Demo1Module } from '@/modules/Demo1'
 import { Demo2Module } from '@/modules/Demo2'
@@ -15,3 +18,4 @@ registerVueModule({
   Demo3Module,
   Demo4Module
 ])
+createApp(App).use(Antd)
