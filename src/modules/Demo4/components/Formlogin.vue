@@ -10,13 +10,13 @@
     <a-form class="formlogin" @submit.prevent="handleSubmit">
    <a-form-item label="Email" name="email"></a-form-item>
      <a-input type="email" required v-model:value="value16"/>
-   <a-form-item label="Password (6 or more characters required)" name="pass" v-model:value="value"></a-form-item>
-    <a-input type="password" required/>
+   <a-form-item label="Password (6 or more characters required)" name="pass"></a-form-item>
+    <a-input type="password" required  v-model:value="nameTitle"/>
    <a-form-item label="Repeat Password" name="checkPass">
    </a-form-item>
     <a-input type="password" required />
    <a-form-item class="formlogin__submit">
-     <a-button type="primary" html-type="submit">Sign Up</a-button>
+     <a-button type="primary" html-type="submit"  @click="onSubmit()">Sign Up</a-button>
      <a-anchor-link href="#components-anchor-demo-basic" title="terms & conditions" />
    </a-form-item>
  </a-form></a-col>
@@ -28,8 +28,18 @@ export default {
   name: 'Formlogin',
   setup () {
     const value16 = ref<string>('')
+    // const validatePass = computed(() => {
+    //   if (pass.length <6 && value === '') {
+    //     return ()
+    //   }
+    // } )
+    const nameTitle = ref('')
+    const onSubmit = () => {
+      console.log(nameTitle.value.length)
+    }
     return {
-      value16
+      value16,
+      onSubmit
     }
   }
 }
