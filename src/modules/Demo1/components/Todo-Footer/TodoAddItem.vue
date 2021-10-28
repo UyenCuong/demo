@@ -3,12 +3,7 @@
    <p>{{ addTodo }}</p>
    <div class="todoFooter--add">
       <form @submit.prevent="onSubmit()">
-        <input
-          v-model="nameTitle"
-          type="text"
-          class="todoFooter--add__input"
-          name="nameTitle"
-        />
+        <a-input v-model:value="nameTitle" class="todoFooter--add__input" />
       </form>
       <button class="todoFooter--add__btn" @click="onSubmit()">Add Item</button>
     </div>
@@ -16,16 +11,16 @@
 </template>
 
 <script lang="ts">
-import { ref } from 'vue'
+import { ref, SetupContext } from 'vue'
 
 export default {
   name: 'TodoAddItem',
-  props: ['addData'],
-  setup (props:any) {
+  emit: ['addData'],
+  setup (props:any, { emit }:SetupContext) {
     const addTodo = ref<string>('Add to the todo list')
     const nameTitle = ref('')
     const onSubmit = () => {
-      props.addData(nameTitle.value)
+      emit('addData', nameTitle.value)
       nameTitle.value = ''
     }
     return {
@@ -53,7 +48,6 @@ export default {
       width: $widthAddItem;
    }
    .todoFooter--add__btn {
-    height: $height;
     width: $widthbtn ;
     background-color: $background-transparent;
     border: 1px solid #fff;

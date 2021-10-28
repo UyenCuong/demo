@@ -24,6 +24,9 @@ export default {
 </script>
 
 <style lang="scss">
+h1 {
+  color :white;
+}
 .header {
     font-weight: $font-weight;
     margin: 35px 35px 0 35px;

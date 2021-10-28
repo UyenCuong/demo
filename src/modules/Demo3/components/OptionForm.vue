@@ -12,7 +12,7 @@
             class="framework__list--input"
             type="radio" name="lang"
            >
-           <p>
+           <p class="framework__list--text">
              {{ framework.title }}
            </p>
         </li>
@@ -61,5 +61,8 @@ export default {
     }
     }
   }
+}
+.framework__list--text {
+   margin: 0;
 }
 </style>

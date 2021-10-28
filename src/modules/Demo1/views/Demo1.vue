@@ -3,9 +3,9 @@
    <TodoHeader />
    <TodoItem
    :todoProps="todos"
-   :removeItemTodo="removeItemTodo" />
+   @removeItemTodo="removeItemTodo" />
    <TodoAddItem
-   :addData="addDataTodo" />
+   @addData="addDataTodo" />
 </div>
 </template>
 <script lang="ts">
@@ -25,13 +25,13 @@ export default {
   },
   setup () {
     const todos = ref<addDataTodo[]>([])
-    const addDataTodo = (value:any) => {
+    const addDataTodo = (value:string) => {
       todos.value.push({
         title: value,
         completed: false
       })
     }
-    const removeItemTodo = (index:any) => {
+    const removeItemTodo = (index: number) => {
       todos.value.splice(index, 1)
     }
     return {
@@ -53,6 +53,5 @@ export default {
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);
-    z-index: -1;
 }
 </style>

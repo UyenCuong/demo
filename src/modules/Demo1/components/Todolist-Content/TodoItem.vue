@@ -22,15 +22,22 @@
 </template>
 
 <script lang="ts">
+import { SetupContext } from '@vue/runtime-core'
 
 export default {
   name: 'TodoItem',
+  emit: ['emoveItemTodo'],
   props: {
     todoProps: {
       type: Array
-    },
-    removeItemTodo: {
-      type: Object
+    }
+  },
+  setup (props: any, { emit }:SetupContext) {
+    const removeItemTodo = (index: number) => {
+      emit('removeItemTodo', index)
+    }
+    return {
+      removeItemTodo
     }
   }
 }
@@ -73,5 +80,6 @@ export default {
 }
 .empty__list {
   text-align: center;
+  color : white;
 }
 </style>
