@@ -7,22 +7,48 @@
   />
   </a-col>
   <a-col :span="12">
-    <a-form class="formlogin" ref="formRef" :rules="rules" :model="dataForm">
-   <a-form-item label="Email" name="email">
-      <a-input type="email" v-model:value="dataForm.email"/>
-   </a-form-item>
-   <a-form-item label="Password (6 or more characters required)" ref="password" name="password">
-      <a-input type="password" v-model:value="dataForm.password"/>
-   </a-form-item>
-   <a-form-item label="Repeat Password" name="repeatpassword">
-     <a-input type="password" v-model:value="dataForm.repeatpassword" />
-   </a-form-item>
-   <a-form-item class="formlogin__submit">
-     <a-button type="primary" html-type="submit"  @click="onSubmit()">Sign Up</a-button>
-     <a-anchor-link href="#components-anchor-demo-basic" title="terms & conditions" />
-   </a-form-item>
- </a-form></a-col>
-  </a-row>
+    <a-form
+      class="formlogin"
+      ref="formRef"
+      :rules="rules"
+      :model="dataForm"
+    >
+      <a-form-item
+        label="Email"
+        name="email"
+      >
+        <a-input
+          type="email"
+          v-model:value="dataForm.email"
+        />
+      </a-form-item>
+      <a-form-item
+        label="Password (6 or more characters required)"
+        ref="password" name="password">
+        <a-input
+          type="password"
+          v-model:value="dataForm.password"
+        />
+      </a-form-item>
+      <a-form-item
+        label="Repeat Password"
+        name="repeatpassword">
+        <a-input
+          type="password"
+          v-model:value="dataForm.repeatpassword" />
+      </a-form-item>
+      <a-form-item class="formlogin__submit">
+        <a-button
+          @click="onSubmit()">
+          Sign Up
+        </a-button>
+        <a-anchor-link
+          href="#components-anchor-demo-basic"
+          title="Terms & conditions" />
+        </a-form-item>
+    </a-form>
+  </a-col>
+</a-row>
 </template>
 <script lang="ts">
 import { RuleObject } from 'ant-design-vue/es/form/interface'
@@ -38,12 +64,12 @@ export default {
     })
     const validatePass = async (rule: RuleObject, value: string) => {
       if (value === '') {
-        Promise.reject(new Error('Please input the password'))
+        return Promise.reject(new Error('Please input the password'))
       } else if (value.length < 6) {
-        Promise.reject(new Error('Password is too short'))
+        return Promise.reject(new Error('Password is too short'))
       } else {
         if (dataForm.repeatpassword !== '') {
-          formRef.value.validateFields('checkPass')
+          formRef.value.validateFields('repeatpassword')
         }
         return Promise.resolve()
       }
@@ -52,7 +78,7 @@ export default {
       if (value === '') {
         return Promise.reject(new Error('Please input the password again'))
       } else if (value !== dataForm.password) {
-        return Promise.reject(new Error('two passwords do not match'))
+        return Promise.reject(new Error('Two passwords do not match'))
       } else {
         return Promise.resolve()
       }
@@ -70,13 +96,6 @@ export default {
       ],
       password: [
         {
-          required: true,
-          message: 'Password is required',
-          trigger: 'change'
-        },
-        {
-          min: 6,
-          message: 'Password is too short',
           trigger: 'change',
           validator: validatePass
         }
@@ -106,26 +125,37 @@ export default {
 .rowcontent{
   justify-content: center;
 }
-  .ant-col-12 {
-    flex: 0 0 0;
-  }
-  .image {
-    height: 450px;
-    object-fit: cover;
-  }
-.formlogin {
-    width: $widthcontact__form;
-    position: relative;
-    background-color: $background-white;
-    padding: $padding-contact__form;
-    height: 450px;
-    .ant-form-item-control-input-content {
-      display: flex;
-      margin-top: 20px;
-      width: 352px;
-    }
+.ant-col-12 {
+  flex: 0 0 0;
 }
-.check {
-      color: red;
-    }
+.image {
+  height: $height-form;
+  object-fit: cover;
+  border-top-left-radius: $boder-radiuss;
+  border-bottom-left-radius: $boder-radiuss;
+}
+.formlogin {
+  width: $widthcontact__form;
+  position: relative;
+  background-color: $background-white;
+  padding: $padding-contact__form;
+  height: $height-form;
+  border-top-right-radius: $boder-radiuss;
+  border-bottom-right-radius: $boder-radiuss;
+  .ant-form-item-control-input-content {
+    display: flex;
+    margin-top: 20px;
+    width: 352px;
+  }
+}
+.ant-btn {
+  border-radius: 10px;
+  background: $btn-color;
+  $width-distance: 120px;
+  &:hover {
+    background-color: $btn-color;
+    border-color:$btn-color ;
+    color: black;
+  }
+}
 </style>
