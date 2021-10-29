@@ -7,14 +7,15 @@
   />
   </a-col>
   <a-col :span="12">
-    <a-form class="formlogin" @submit.prevent="handleSubmit">
+    <a-form class="formlogin" :rules="rules" :model="dataForm">
    <a-form-item label="Email" name="email"></a-form-item>
      <a-input type="email" required v-model:value="value16"/>
-   <a-form-item label="Password (6 or more characters required)" name="pass"></a-form-item>
-    <a-input type="password" required  v-model:value="nameTitle"/>
+   <a-form-item label="Password (6 or more characters required)" ref="password" name="pass"></a-form-item>
+    <a-input type="password" required  />
+    {{ check }}
    <a-form-item label="Repeat Password" name="checkPass">
    </a-form-item>
-    <a-input type="password" required />
+    <a-input type="password" required v-model:value="dataForm.password" />
    <a-form-item class="formlogin__submit">
      <a-button type="primary" html-type="submit"  @click="onSubmit()">Sign Up</a-button>
      <a-anchor-link href="#components-anchor-demo-basic" title="terms & conditions" />
@@ -23,22 +24,30 @@
   </a-row>
 </template>
 <script lang="ts">
-import { ref } from 'vue'
+import { ref, reactive } from 'vue'
 export default {
   name: 'Formlogin',
   setup () {
     const value16 = ref<string>('')
-    // const validatePass = computed(() => {
-    //   if (pass.length <6 && value === '') {
-    //     return ()
-    //   }
-    // } )
-    const nameTitle = ref('')
+    const dataForm = ref<{password: string;}>({
+      password: ''
+    })
+    const check = ref('')
+    const rules = reactive({
+      password: [{ required: true, message: 'Password is required', trigger: 'change' }, { min: 6, message: 'Password is too short', trigger: 'change' }]
+    })
     const onSubmit = () => {
-      console.log(nameTitle.value.length)
+      if (rules.password.length < 6) {
+        check.value = 'Password is too short'
+      } else {
+        check.value = ''
+      }
     }
     return {
       value16,
+      rules,
+      check,
+      dataForm,
       onSubmit
     }
   }
