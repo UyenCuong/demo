@@ -102,16 +102,16 @@ export default {
       padding: 0;
       width: $width-distance;
     .form__feature--input {
-       height: $height-form;
+      height: $height-form;
+    .form__feature--all {
+      text-align: center;
+      display: flex;
+    .form__feature--input {
+      height: $height-form;
+          }
+        }
+      }
     }
-    }
-  }
-}
-.form__feature--all {
-  text-align: center;
-  display: flex;
-  .form__feature--input {
-       height: $height-form;
   }
 }
 </style>

@@ -57,12 +57,13 @@ export default {
       width: $width-distance;
     .framework__list--input {
       height: $height-form;
-    }
-    }
+    .framework__list--text {
+      margin: 0;
+        }
+      }
     }
   }
 }
-.framework__list--text {
-   margin: 0;
+
 }
 </style>

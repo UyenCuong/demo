@@ -6,9 +6,8 @@
     src="https://i.pinimg.com/originals/48/d5/eb/48d5ebb5c96aa214ee2c585dcd5b0761.jpg"
   />
   </a-col>
-  <a-col :span="12">
+  <a-col :span="12" class="formlogin">
     <a-form
-      class="formlogin"
       ref="formRef"
       :rules="rules"
       :model="dataForm"
@@ -96,12 +95,14 @@ export default {
       ],
       password: [
         {
+          required: true,
           trigger: 'change',
           validator: validatePass
         }
       ],
       repeatpassword: [
         {
+          required: true,
           validator: validatePass2
         }
       ]
@@ -120,42 +121,41 @@ export default {
     }
   }
 }
+
 </script>
 <style lang="scss">
 .rowcontent{
   justify-content: center;
-}
-.ant-col-12 {
-  flex: 0 0 0;
-}
-.image {
-  height: $height-form;
-  object-fit: cover;
-  border-top-left-radius: $boder-radiuss;
-  border-bottom-left-radius: $boder-radiuss;
-}
-.formlogin {
-  width: $widthcontact__form;
-  position: relative;
-  background-color: $background-white;
-  padding: $padding-contact__form;
-  height: $height-form;
-  border-top-right-radius: $boder-radiuss;
-  border-bottom-right-radius: $boder-radiuss;
-  .ant-form-item-control-input-content {
-    display: flex;
-    margin-top: 20px;
-    width: 352px;
+  .ant-col-12 {
+    flex: 0 0 0;
+    .image {
+      height: 450px;
+      object-fit: cover;
+      border-top-left-radius: $boder-radiuss;
+      border-bottom-left-radius: $boder-radiuss;
+    }
   }
-}
-.ant-btn {
-  border-radius: 10px;
-  background: $btn-color;
-  $width-distance: 120px;
-  &:hover {
-    background-color: $btn-color;
-    border-color:$btn-color ;
-    color: black;
+    .formlogin {
+      background-color: $background-white;
+      padding: 15px;
+      height: 450px;
+      border-top-right-radius: $boder-radiuss;
+      border-bottom-right-radius: $boder-radiuss;
+      .ant-form-item-control-input-content {
+        display: flex;
+        margin-top: 20px;
+        width: 352px;
+        .ant-btn {
+          border-radius: 10px;
+          background: $btn-color;
+          width:$width-distance ;
+        &:hover {
+          background-color: $btn-color;
+          border-color:$btn-color ;
+          color: black;
+        }
+      }
+    }
   }
 }
 </style>

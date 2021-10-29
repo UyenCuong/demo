@@ -27,8 +27,8 @@ export default {
 .form {
   text-align: center;
   .form__title {
-  color: black;
-}
+    color: black;
+  }
 }
 
 </style>

@@ -71,15 +71,15 @@ export default {
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
         max-width: 300px;
+    .is-completed {
+        text-decoration: line-through;
         }
+      }
     }
   }
 }
-.is-completed {
-  text-decoration: line-through;
-}
 .empty__list {
-  text-align: center;
-  color : white;
-}
+        text-align: center;
+        color : white;
+          }
 </style>
