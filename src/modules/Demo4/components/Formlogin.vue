@@ -7,15 +7,16 @@
   />
   </a-col>
   <a-col :span="12">
-    <a-form class="formlogin" :rules="rules" :model="dataForm">
-   <a-form-item label="Email" name="email"></a-form-item>
-     <a-input type="email" required v-model:value="value16"/>
-   <a-form-item label="Password (6 or more characters required)" ref="password" name="pass"></a-form-item>
-    <a-input type="password" required  />
-    {{ check }}
-   <a-form-item label="Repeat Password" name="checkPass">
+    <a-form class="formlogin" ref="formRef" :rules="rules" :model="dataForm">
+   <a-form-item label="Email" name="email">
+      <a-input type="email" v-model:value="dataForm.email"/>
    </a-form-item>
-    <a-input type="password" required v-model:value="dataForm.password" />
+   <a-form-item label="Password (6 or more characters required)" ref="password" name="password">
+      <a-input type="password" v-model:value="dataForm.password"/>
+   </a-form-item>
+   <a-form-item label="Repeat Password" name="checkPass">
+     <a-input type="password" v-model:value="dataForm.repeatpassword" />
+   </a-form-item>
    <a-form-item class="formlogin__submit">
      <a-button type="primary" html-type="submit"  @click="onSubmit()">Sign Up</a-button>
      <a-anchor-link href="#components-anchor-demo-basic" title="terms & conditions" />
@@ -24,29 +25,51 @@
   </a-row>
 </template>
 <script lang="ts">
-import { ref, reactive } from 'vue'
+import { ref, reactive, toRaw } from 'vue'
 export default {
   name: 'Formlogin',
   setup () {
-    const value16 = ref<string>('')
-    const dataForm = ref<{password: string;}>({
-      password: ''
+    const formRef = ref()
+    const dataForm = reactive({
+      email: '',
+      password: '',
+      repeatpassword: ''
     })
-    const check = ref('')
     const rules = reactive({
-      password: [{ required: true, message: 'Password is required', trigger: 'change' }, { min: 6, message: 'Password is too short', trigger: 'change' }]
+      email: [
+        {
+          type: 'email',
+          message: 'The input is not valid E-mail!'
+        },
+        {
+          required: true,
+          message: 'Please input your E-mail!'
+        }
+      ],
+      password: [
+        {
+          required: true,
+          message: 'Password is required',
+          trigger: 'change'
+        },
+        {
+          min: 6,
+          message: 'Password is too short',
+          trigger: 'change'
+        }
+      ],
+      repeatpassword: [
+      ]
     })
     const onSubmit = () => {
-      if (rules.password.length < 6) {
-        check.value = 'Password is too short'
-      } else {
-        check.value = ''
-      }
+      formRef.value.validate()
+        .then(() => {
+          console.log('values', dataForm, toRaw(dataForm))
+        })
     }
     return {
-      value16,
+      formRef,
       rules,
-      check,
       dataForm,
       onSubmit
     }
@@ -61,7 +84,7 @@ export default {
     flex: 0 0 0;
   }
   .image {
-    height: 430px;
+    height: 450px;
     object-fit: cover;
   }
 .formlogin {
@@ -69,9 +92,14 @@ export default {
     position: relative;
     background-color: $background-white;
     padding: $padding-contact__form;
+    height: 450px;
     .ant-form-item-control-input-content {
       display: flex;
       margin-top: 20px;
+      width: 352px;
     }
 }
+.check {
+      color: red;
+    }
 </style>
