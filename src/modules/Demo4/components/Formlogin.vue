@@ -14,7 +14,7 @@
    <a-form-item label="Password (6 or more characters required)" ref="password" name="password">
       <a-input type="password" v-model:value="dataForm.password"/>
    </a-form-item>
-   <a-form-item label="Repeat Password" name="checkPass">
+   <a-form-item label="Repeat Password" name="repeatpassword">
      <a-input type="password" v-model:value="dataForm.repeatpassword" />
    </a-form-item>
    <a-form-item class="formlogin__submit">
@@ -25,6 +25,7 @@
   </a-row>
 </template>
 <script lang="ts">
+import { RuleObject } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
 export default {
   name: 'Formlogin',
@@ -35,6 +36,27 @@ export default {
       password: '',
       repeatpassword: ''
     })
+    const validatePass = async (rule: RuleObject, value: string) => {
+      if (value === '') {
+        Promise.reject(new Error('Please input the password'))
+      } else if (value.length < 6) {
+        Promise.reject(new Error('Password is too short'))
+      } else {
+        if (dataForm.repeatpassword !== '') {
+          formRef.value.validateFields('checkPass')
+        }
+        return Promise.resolve()
+      }
+    }
+    const validatePass2 = async (rule: RuleObject, value: string) => {
+      if (value === '') {
+        return Promise.reject(new Error('Please input the password again'))
+      } else if (value !== dataForm.password) {
+        return Promise.reject(new Error('two passwords do not match'))
+      } else {
+        return Promise.resolve()
+      }
+    }
     const rules = reactive({
       email: [
         {
@@ -55,10 +77,14 @@ export default {
         {
           min: 6,
           message: 'Password is too short',
-          trigger: 'change'
+          trigger: 'change',
+          validator: validatePass
         }
       ],
       repeatpassword: [
+        {
+          validator: validatePass2
+        }
       ]
     })
     const onSubmit = () => {
