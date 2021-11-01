@@ -6,7 +6,10 @@ import {
   Anchor,
   Image,
   Row,
-  Col
+  Col,
+  Layout,
+  Menu
+
 } from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
 export default {
@@ -18,7 +21,9 @@ export default {
       Anchor,
       Image,
       Row,
-      Col
+      Col,
+      Layout,
+      Menu
     ]
     components.map((c) => app.use(c))
   }
