@@ -4,7 +4,7 @@
       <a-menu
         theme="dark"
         mode="vertical"
-        :style="{  lineHeight: '64px', width:'70px',height:'100%',position:'absolute',left:'0'}"
+        :style="{  lineHeight: '64px'}"
       >
         <div class="header__menu--vertical">
           <div>

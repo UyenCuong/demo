@@ -1,6 +1,4 @@
-<template><app-icon name="delete-circle"></app-icon>
-<a-layout>
-    <a-layout-header class="headerLayout">
+<template>
       <div class="headerLayout" />
       <a-menu
         theme="dark"
@@ -11,7 +9,6 @@
         <div class="header__menu">
             <div>
               <a-menu-item key="1">navan</a-menu-item>
-              <a-menu-item key="1">navan0110@gmail.com</a-menu-item>
             </div>
           <div>
               <a-menu-item key="3">
@@ -19,16 +16,14 @@
                     Search in desktop
               </a-menu-item>
           </div>
-           <a-menu-item key="4">
+          <div><a-menu-item key="4">
                  <app-icon :name="'briefcase'"></app-icon>
                    <app-icon :name="'bell'"></app-icon>
                     <app-icon :name="'account-multiple-outline'"></app-icon>
                     <app-icon :name="'account-circle'"></app-icon>
-           </a-menu-item>
+           </a-menu-item></div>
         </div>
       </a-menu>
-    </a-layout-header>
-    </a-layout>
 </template>
 <script lang="ts">
 
@@ -39,8 +34,6 @@
     display: flex;
     color: white;
     justify-content: space-between;
-    width : calc(100vw - 70px);
-    top: 0;
-    right: 0;
 }
+
 </style>
