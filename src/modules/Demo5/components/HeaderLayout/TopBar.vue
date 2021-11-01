@@ -5,12 +5,12 @@
       <a-menu
         theme="dark"
         mode="horizontal"
+        v-model:selectedKeys="selectedKeys1"
         :style="{ lineHeight: '64px' }"
       >
         <div class="header__menu">
             <div>
               <a-menu-item key="1">navan</a-menu-item>
-              <a-menu-item key="2">nav0710@gmail.com</a-menu-item>
             </div>
           <div>
               <a-menu-item key="3">

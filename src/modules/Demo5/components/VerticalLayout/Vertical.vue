@@ -1,32 +1,19 @@
 <template>
   <a-layout>
-    <a-layout-header class="headerLayout">
-      <div class="headerLayout" />
+      <div class="headerlayoutvertical" />
       <a-menu
         theme="dark"
         mode="vertical"
-        :style="{ lineHeight: '64px' }"
+        :style="{  lineHeight: '64px', width:'80px',height:'100%',position:'absolute',left:'0'}"
       >
-        <div class="header__menu">
-            <div>
-              <a-menu-item key="1">navan</a-menu-item>
-              <a-menu-item key="2">nav0710@gmail.com</a-menu-item>
-            </div>
+        <div class="header__menu--vertical">
           <div>
-              <a-menu-item key="3">
-                  <app-icon :name="'magnify-plus-outline'"></app-icon>
-                    Search in desktop
+              <a-menu-item key="5">
+                  <app-icon :name="'alpha-n-circle-outline'"></app-icon>
               </a-menu-item>
           </div>
-           <a-menu-item key="4">
-                 <app-icon :name="'briefcase'"></app-icon>
-                   <app-icon :name="'bell'"></app-icon>
-                    <app-icon :name="'account-multiple-outline'"></app-icon>
-                    <app-icon :name="'account-circle'"></app-icon>
-           </a-menu-item>
         </div>
       </a-menu>
-    </a-layout-header>
     </a-layout>
 </template>
 
