@@ -11,6 +11,7 @@
         <div class="header__menu">
             <div>
               <a-menu-item key="1">navan</a-menu-item>
+              <a-menu-item key="1">navan0110@gmail.com</a-menu-item>
             </div>
           <div>
               <a-menu-item key="3">
@@ -38,5 +39,8 @@
     display: flex;
     color: white;
     justify-content: space-between;
+    width : calc(100vw - 70px);
+    top: 0;
+    right: 0;
 }
 </style>

@@ -1,8 +1,16 @@
 <template>
 <a-layout>
   <TopBar />
-  <Vertical />
-  <Slider />
+  <div>
+     <a-row>
+    <a-col :span="1">
+    <Vertical />
+    </a-col>
+    <a-col :span="4">
+      <Slider />
+    </a-col>
+  </a-row>
+  </div>
 </a-layout>
 </template>
 
