@@ -1,5 +1,4 @@
 <template>
-  <a-layout>
     <div class="headerlayoutvertical" />
       <a-menu
         theme="dark"
@@ -15,7 +14,6 @@
           </div>
         </div>
       </a-menu>
-    </a-layout>
 </template>
 
 <script>

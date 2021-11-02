@@ -1,10 +1,9 @@
 <template>
-  <a-layout class="slider">
+  <div class="slider">
     <a-layout-sider v-model:collapsed="collapsed" collapsible>
       <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
         <a-menu-item key="1">
           <app-icon :name="'heart-outline'"></app-icon>
-          <pie-chart-outlined />
           <span>Favorites</span>
         </a-menu-item>
         <a-menu-item key="2">
@@ -49,7 +48,7 @@
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
-    </a-layout>
+    </div>
 </template>
 
 <script>
@@ -59,7 +58,5 @@ export default {
 </script>
 
 <style>
-.slider {
-  min-height: 100vh;
-}
+
 </style>

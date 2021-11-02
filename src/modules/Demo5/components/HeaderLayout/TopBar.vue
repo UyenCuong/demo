@@ -5,7 +5,7 @@
         mode="horizontal"
         v-model:selectedKeys="selectedKeys1"
         :style="{ lineHeight: '64px' }">
-      <div class="header__menu">
+      <div class="header__topbar">
           <div>
               <a-menu-item key="1">navan</a-menu-item>
           </div>
@@ -31,10 +31,11 @@
 </script>
 
 <style lang="scss">
-.header__menu {
+.header__topbar {
     display: flex;
     color: white;
     justify-content: space-between;
+    width: 100%;
 }
 .ant-layout-header {
       padding: 0;
