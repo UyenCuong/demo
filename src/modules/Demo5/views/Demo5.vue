@@ -1,16 +1,20 @@
 <template>
 <a-layout>
-    <a-layout-sider :width="60">
+  <a-layout-sider :width="60">
       <Vertical />
-    </a-layout-sider>
-    <a-layout-header><TopBar /></a-layout-header>
-    <a-layout-sider><Slider /></a-layout-sider>
-</a-layout>
+  </a-layout-sider>
+  <a-layout-content>
     <a-layout>
-    <a-layout>
-      <a-layout-content><ContentHeader /></a-layout-content>
+      <a-layout-header><TopBar /></a-layout-header>
+    <a-layout-content>
+    <a-row>
+      <a-col :span="4"><Slider /></a-col>
+      <a-col :span="20"><ContentHeader /></a-col>
+    </a-row>
+    </a-layout-content>
     </a-layout>
-  </a-layout>
+ </a-layout-content>
+ </a-layout>
 </template>
 
 <script>
