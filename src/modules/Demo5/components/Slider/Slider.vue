@@ -1,13 +1,12 @@
 <template>
-  <div class="slider">
-    <a-layout-sider v-model:collapsed="collapsed" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed" style="min-height: 100vh" collapsible>
       <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
         <a-menu-item key="1">
           <app-icon :name="'heart-outline'"></app-icon>
           <span>Favorites</span>
         </a-menu-item>
         <a-menu-item key="2">
-          <app-icon :name="'lock'"></app-icon>
+          <app-icon :name="'shield-lock-outline'"></app-icon>
           <span>Passwords</span>
         </a-menu-item>
         <a-menu-item key="3">
@@ -21,6 +20,7 @@
         <a-sub-menu key="sub1">
           <template #title>
             <span>
+               <app-icon :name="'checkbox-blank-circle-outline'"></app-icon>
               <span>INTERNAL DESKTOP</span>
             </span>
           </template>
@@ -48,7 +48,6 @@
         </a-sub-menu>
       </a-menu>
     </a-layout-sider>
-    </div>
 </template>
 
 <script>

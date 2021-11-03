@@ -4,13 +4,19 @@
       <Vertical />
     </a-layout-sider>
     <a-layout>
-      <a-layout-header><TopBar /></a-layout-header>
-      <a-layout-sider>
-        <Slider />
-      </a-layout-sider>
+      <a-layout-header>
+        <TopBar />
+      </a-layout-header>
       <a-layout>
-        <a-layout-header><ContentHeader /></a-layout-header>
-        <a-layout-content> </a-layout-content>
+        <Slider />
+        <a-layout>
+          <a-layout-header>
+            <ContentHeader />
+          </a-layout-header>
+          <a-layout-content>
+            <Content />
+          </a-layout-content>
+        </a-layout>
       </a-layout>
     </a-layout>
   </a-layout>
@@ -21,12 +27,14 @@ import TopBar from '@/modules/Demo5/components/HeaderLayout/TopBar.vue'
 import Vertical from '@/modules/Demo5/components/VerticalLayout/Vertical.vue'
 import Slider from '@/modules/Demo5/components/Slider/Slider.vue'
 import ContentHeader from '@/modules/Demo5/components/Contents/ContentHeader.vue'
+import Content from '@/modules/Demo5/components/Contents/Content.vue'
 export default {
   components: {
-    TopBar,
     Vertical,
+    TopBar,
     Slider,
-    ContentHeader
+    ContentHeader,
+    Content
   }
 }
 </script>

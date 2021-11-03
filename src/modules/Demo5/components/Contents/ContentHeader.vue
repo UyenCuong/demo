@@ -21,12 +21,7 @@
                   <app-icon :name="'phone-outline'"></app-icon>
                   <app-icon :name="'video-outline'"></app-icon>
             </div>
-         </div>
-        <a-layout-content
-          :style="{ background: '#fff', padding: '24px', margin: 0, minHeight: '280px' }"
-        >
-          Content
-        </a-layout-content>
+          </div>
 </template>
 
 <script>
@@ -36,5 +31,9 @@ export default {
 </script>
 
 <style>
-
+.content__header {
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+}
 </style>
