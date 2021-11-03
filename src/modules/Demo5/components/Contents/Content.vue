@@ -100,7 +100,7 @@
                 <a-col>
                     <div claa="desktop">
                         <p>Destop.com 09:11 AM</p>
-                <p>Welcome to Desktop.com<br> This is where you can chat with<br> af other invited members of ths<br> specific desktop. Go ahead<br> and Invite membeif you haven't<br> aiready To start a 1 on 1 chat<br> or a now group chat, s mply go <br>to Chats and click on new chat</p>
+                <p class="text">Welcome to Desktop.com<br> This is where you can chat with<br> af other invited members of ths<br> specific desktop. Go ahead<br> and Invite membeif you haven't<br> aiready To start a 1 on 1 chat<br> or a now group chat, s mply go <br>to Chats and click on new chat</p>
                 </div>
                </a-col>
                 </a-row>
@@ -193,5 +193,7 @@ img {
     border-radius: 5px;
     margin-top: 380px;
 }
-
+.text {
+    background-color: #bfbfbf;
+}
 </style>
