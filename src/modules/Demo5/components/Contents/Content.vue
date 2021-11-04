@@ -4,115 +4,30 @@
       <ContentsToolbar></ContentsToolbar>
       <div class="row-content">
         <a-row type="flex" justify="space-around" align="middle">
-          <a-col :xs="{ span: 4 }"><ContentApps></ContentApps></a-col>
           <a-col :xs="{ span: 4 }">
-
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Group</h5>
-              </template>
-            </ContentApps>
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Docs</h5>
-              </template>
-            </ContentApps>
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Gmail</h5>
-              </template>
-            </ContentApps>
-          </a-col>
+      <ul >
+        <li v-for="app in apps" :key="app">
+          <div class="bkr__img">
+          <img
+              {{img}}
+          />
+        <h5 class="title">{{title}}</h5>
+        </div>
+        </li>
+      </ul>
         </a-row>
         <a-row type="flex" justify="space-around" align="middle" class="mr__br">
           <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png"
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Google Chat</h5>
-              </template>
-            </ContentApps>
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Google Hangouts</h5>
-              </template>
-            </ContentApps>
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Group Chat</h5>
-              </template>
-            </ContentApps>
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Jamboard</h5>
-              </template>
-            </ContentApps>
-          </a-col>
-          <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Sheets</h5>
-              </template>
-            </ContentApps>
-          </a-col>
+      <ul >
+        <li v-for="apptow in apptows" :key="apptow">
+          <div class="bkr__img">
+          <img
+              {{img}}
+          />
+        <h5 class="title">{{title}}</h5>
+        </div>
+        </li>
+      </ul>
         </a-row>
       </div>
       <ContentsToolbar>
@@ -205,16 +120,39 @@
 <script lang="ts">
 import ContentDesk from './ContentDesk.vue'
 import ContentsToolbar from './ContentsToolbar.vue'
-import ContentApps from './ContentApps.vue'
 export default {
   components: {
     ContentsToolbar,
-    ContentApps,
     ContentDesk
   },
   props: {
-    Items: {
+    apps: {
       type: Array
+    },
+    apptows: {
+      type: Array
+    }
+  },
+  setup () {
+    const apps:Array<apps> = [
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_meet_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png', title: 'Meet' }
+    ]
+    const apptows:Array<apptow> = [
+      { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' }
+    ]
+    return {
+      apps,
+      apptow
     }
   }
 }
