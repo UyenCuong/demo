@@ -1,8 +1,8 @@
 <template>
-    <a-layout-sider v-model:collapsed="collapsed" style="min-height: 100vh" collapsible>
+    <a-layout-sider v-model:collapsed="collapsed" collapsible class="siderbar">
       <a-menu theme="dark" v-model:selectedKeys="selectedKeys" mode="inline">
-        <a-menu-item key="1">
-          <app-icon :name="'heart-outline'"></app-icon>
+        <div class="siderbar__item"><a-menu-item key="1">
+          <app-icon :name="'heart-outline'" ></app-icon>
           <span>Favorites</span>
         </a-menu-item>
         <a-menu-item key="2">
@@ -29,7 +29,7 @@
         <a-sub-menu key="sub2">
           <template #title>
             <span>
-              <team-outlined />
+               <app-icon :name="'account-box-outline'"></app-icon>
               <span>SHARED DESKTOPS</span>
             </span>
           </template>
@@ -39,23 +39,30 @@
         <a-sub-menu key="sub3">
           <template #title>
             <span>
-              <team-outlined />
+                <app-icon :name="'account-multiple-outline'"></app-icon>
               <span>PRIVATE DESKTOP</span>
             </span>
           </template>
           <a-menu-item key="6">You don't have any private destops</a-menu-item>
           <a-menu-item key="7">Learn more</a-menu-item>
-        </a-sub-menu>
+        </a-sub-menu></div>
       </a-menu>
     </a-layout-sider>
 </template>
 
-<script>
+<script lang="ts">
 export default {
 }
 
 </script>
 
-<style>
-
+<style lang="scss">
+.siderbar {
+  min-height: 100vh;
+  background-color: #ecdddd79;
+}
+.siderbar__item {
+  min-height: 100vh;
+  background-color: #ecdddd79;
+}
 </style>

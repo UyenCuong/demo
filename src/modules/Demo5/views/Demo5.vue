@@ -1,8 +1,6 @@
 <template>
  <a-layout>
-    <a-layout-sider :width="60">
-      <Vertical />
-    </a-layout-sider>
+   <SliderBar />
     <a-layout>
       <a-layout-header>
         <TopBar />
@@ -24,13 +22,13 @@
 
 <script>
 import TopBar from '@/modules/Demo5/components/HeaderLayout/TopBar.vue'
-import Vertical from '@/modules/Demo5/components/VerticalLayout/Vertical.vue'
+import SliderBar from '@/modules/Demo5/components/Slider/SliderBar.vue'
 import Slider from '@/modules/Demo5/components/Slider/Slider.vue'
 import ContentHeader from '@/modules/Demo5/components/Contents/ContentHeader.vue'
 import Content from '@/modules/Demo5/components/Contents/Content.vue'
 export default {
   components: {
-    Vertical,
+    SliderBar,
     TopBar,
     Slider,
     ContentHeader,

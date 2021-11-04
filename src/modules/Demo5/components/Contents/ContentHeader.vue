@@ -6,20 +6,20 @@
             </a-button>
             </div>
             <div>
-              <a-button>
+              <a-button class="btntoolbar">
                 <app-icon :name="'clock-time-four-outline'"></app-icon>
                     Activiti
                 </a-button>
-              <a-button >
+              <a-button class="btntoolbar">
                 <app-icon :name="'account-multiple-outline'"></app-icon>
                     Share
                 </a-button>
-              <a-button type="primary">
+              <a-button type="primary" class="btntoolbar">
                   <app-icon :name="'plus'"></app-icon>
                     Add
               </a-button>
-                  <app-icon :name="'phone-outline'"></app-icon>
-                  <app-icon :name="'video-outline'"></app-icon>
+                  <app-icon :name="'phone-outline'" class="colortelephone btntoolbar"></app-icon>
+                  <app-icon :name="'video-outline'" class="btntoolbar"></app-icon>
             </div>
           </div>
 </template>
@@ -35,5 +35,11 @@ export default {
   display: flex;
   justify-content: space-between;
   background-color: white;
+}
+.btntoolbar {
+   margin: 0 10px;
+  }
+.colortelephone {
+  color: rgb(8, 8, 117);
 }
 </style>
