@@ -31,6 +31,7 @@ export default {}
   .fonttitle {
     color: black;
     font-weight: 500;
+    margin-left: 10px;
   }
   .contenttoolbar {
     display: flex;

@@ -1,22 +1,12 @@
 <template>
   <a-row type="flex">
-    <a-col :flex="14">
+    <a-col :span="16">
       <ContentsToolbar></ContentsToolbar>
       <div class="row-content">
         <a-row type="flex" justify="space-around" align="middle">
           <a-col :xs="{ span: 4 }"><ContentApps></ContentApps></a-col>
           <a-col :xs="{ span: 4 }">
-            <ContentApps>
-              <template v-slot:img>
-                <img
-                  src="https://ssl.gstatic.com/images/icons/material/product/1x/contacts_512dp.png"
-                  alt=""
-                />
-              </template>
-              <template v-slot:nameapp>
-                <h5 class="title">Contacts</h5>
-              </template>
-            </ContentApps>
+
           </a-col>
           <a-col :xs="{ span: 4 }">
             <ContentApps>
@@ -157,7 +147,7 @@
         </a-row>
       </div>
     </a-col>
-    <a-col :flex="10">
+    <a-col :span="8">
       <ContentsToolbar>
         <template v-slot:title>
           <div class="fonttitle"><span>Chat</span></div>
@@ -221,6 +211,11 @@ export default {
     ContentsToolbar,
     ContentApps,
     ContentDesk
+  },
+  props: {
+    Items: {
+      type: Array
+    }
   }
 }
 </script>
@@ -245,28 +240,26 @@ export default {
     .content {
       background: $background-white;
       height: 709px;
-      width: 1025px;
+      width: auto;
     }
   }
 }
 
 .bkr__chats {
   background-color:  $background-gray;
-  height: 725px;
-  width: 300px;
+  height: 728px;
   padding: 18px;
   border-radius: 5px;
   margin-left: 10px;
   .bkr__center {
     background-color: $background-white;
     height: 700px;
-    width: 270px;
     border-radius: 5px;
     .input__mess {
-      width: 240px;
+      width: auto;
       margin-left: 20px;
       border-radius: 5px;
-      margin-top: 380px;
+      margin-top: 360px;
     }
     .today {
       text-align: center;
