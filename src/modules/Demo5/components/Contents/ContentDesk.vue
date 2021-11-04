@@ -1,30 +1,59 @@
 <template>
-  <div class="brk__chat">
-    <a-row type="flex">
-      <a-col :flex="3">
-        <app-icon :name="'card-multiple-outline'"></app-icon>
-        <span>www.destop.com</span>
-        <slot name="namedesk"> <p>Desktop.com Help Center</p></slot>
-      </a-col>
-      <a-col :flex="2"
+  <ContentsToolbar>
+    <template v-slot:title>
+      <div class="fonttitle"><span>Link 11</span></div>
+    </template>
+    <template v-slot:action>
+      <app-icon :name="'folder-plus-outline'"></app-icon>
+    </template>
+  </ContentsToolbar>
+  <div class="row-content">
+    <a-row class="folder">
+      <a-col :xs="{ span: 5 }"
         ><img
-          src="https://global-uploads.webflow.com/5fdc9a528126120a2b773972/60d1e5dd4a6cb9331c78550a_chat.svg"
-      /></a-col>
+          src="https://thumbs.dreamstime.com/z/nfolder-data-folder-vector-icon-editable-125303145.jpg"
+          alt=""
+        />
+        <h5>Admin Support Folder</h5></a-col
+      >
     </a-row>
-    <div class="icon-sp">
-      <div>
-        <app-icon :name="'alpha-v'" class="greenicon"></app-icon>
-        <app-icon :name="'heart-outline'"></app-icon>
-      </div>
-      <div>
-        <app-icon :name="'dots-horizontal'"></app-icon>
-      </div>
-    </div>
+    <a-row class="folder">
+      <a-col :span="8" v-for="(item, index) in data" :key="index">
+        <ContentDeskItem>
+          <template v-slot:namedesk>
+            <p>What is a desktop ?</p>
+          </template>
+        </ContentDeskItem>
+      </a-col>
+      <!-- <a-col :span="10">
+        <ContentDesk></ContentDesk>
+      </a-col>
+      <a-col :span="10" :offset="2">
+        <ContentDesk>
+          <template v-slot:namedesk>
+            <p>What is a desktop ?</p>
+          </template>
+        </ContentDesk>
+      </a-col> -->
+    </a-row>
   </div>
 </template>
 
 <script lang="ts">
-export default {}
+import ContentsToolbar from './ContentsToolbar.vue'
+import ContentDeskItem from './ContentDeskItem.vue'
+
+export default {
+  components: {
+    ContentsToolbar,
+    ContentDeskItem
+  },
+  props: {
+    data: {
+      type: Array
+    }
+  }
+}
 </script>
 
 <style lang="scss">

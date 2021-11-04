@@ -1,31 +1,32 @@
 <template>
-  <div class="bkr__img">
-    <slot name="img"
-      ><img
-        src="https://ssl.gstatic.com/images/branding/product/1x/hh_meet_512dp.png"
-        alt=""
-    /></slot>
-    <slot name="nameapp"> <h5 class="title">Meet</h5></slot>
+  <ContentsToolbar></ContentsToolbar>
+  <div class="row-content">
+    <a-row type="flex" justify="space-around" align="middle">
+      <a-col :xs="{ span: 4 }" v-for="(item, index) in data" :key="index">
+        <ContentAppsItem :src="item.src" :title="item.title" />
+      </a-col>
+    </a-row>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import ContentsToolbar from './ContentsToolbar.vue'
+import ContentAppsItem from './ContentAppsItem.vue'
+
+export default {
+  components: {
+    ContentsToolbar,
+    ContentAppsItem
+  },
+  props: {
+    data: {
+      type: Array
+    }
+  }
+}
+
 </script>
 
 <style lang="scss">
-img {
-  height: 100px;
-  object-fit: cover;
-  width: 100px;
-  margin: 5px;
-  border-radius: 3px;
-}
-.bkr__img {
-  background-color: $background-white;
-  height: 130px;
-  width: $width-distance;
-  border-radius: 4px;
-  margin-top: 20px;
-}
 
 </style>

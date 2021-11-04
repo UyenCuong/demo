@@ -1,66 +1,8 @@
 <template>
   <a-row type="flex">
     <a-col :span="16">
-      <ContentsToolbar></ContentsToolbar>
-      <div class="row-content">
-        <a-row type="flex" justify="space-around" align="middle">
-          <a-col :xs="{ span: 4 }">
-      <ul >
-        <li v-for="app in apps" :key="app">
-          <div class="bkr__img">
-          <img
-              {{img}}
-          />
-        <h5 class="title">{{title}}</h5>
-        </div>
-        </li>
-      </ul>
-        </a-row>
-        <a-row type="flex" justify="space-around" align="middle" class="mr__br">
-          <a-col :xs="{ span: 4 }">
-      <ul >
-        <li v-for="apptow in apptows" :key="apptow">
-          <div class="bkr__img">
-          <img
-              {{img}}
-          />
-        <h5 class="title">{{title}}</h5>
-        </div>
-        </li>
-      </ul>
-        </a-row>
-      </div>
-      <ContentsToolbar>
-        <template v-slot:title>
-          <div  class="fonttitle"><span>Link 11</span></div>
-        </template>
-        <template v-slot:action>
-          <app-icon :name="'folder-plus-outline'"></app-icon>
-        </template>
-      </ContentsToolbar>
-      <div class="row-content">
-        <a-row class="folder">
-          <a-col :xs="{ span: 5 }"
-            ><img
-              src="https://thumbs.dreamstime.com/z/nfolder-data-folder-vector-icon-editable-125303145.jpg"
-              alt=""
-            />
-            <h5>Admin Support Folder</h5></a-col
-          >
-        </a-row>
-        <a-row class="folder">
-          <a-col :span="10">
-            <ContentDesk></ContentDesk>
-          </a-col>
-          <a-col :span="10" :offset="2">
-            <ContentDesk>
-              <template v-slot:namedesk>
-                <p>What is a desktop ?</p>
-              </template>
-            </ContentDesk>
-          </a-col>
-        </a-row>
-      </div>
+      <ContentApps :data="appData"/>
+      <ContentDesk :data="[1,2,3]"/>
     </a-col>
     <a-col :span="8">
       <ContentsToolbar>
@@ -120,29 +62,36 @@
 <script lang="ts">
 import ContentDesk from './ContentDesk.vue'
 import ContentsToolbar from './ContentsToolbar.vue'
+import ContentApps from './ContentApps.vue'
+
+ interface App {
+   src: string,
+   title: string
+ }
+
 export default {
   components: {
+    ContentApps,
     ContentsToolbar,
     ContentDesk
   },
-  props: {
-    apps: {
-      type: Array
-    },
-    apptows: {
-      type: Array
-    }
-  },
+
   setup () {
-    const apps:Array<apps> = [
+    const appData:Array<App> = [
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_meet_512dp.png', title: 'Meet' },
       { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png', title: 'Meet' },
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png', title: 'Meet' }
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png', title: 'Meet' },
+      { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' }
     ]
-    const apptows:Array<apptow> = [
+    const towData:Array<App> = [
       { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Meet' },
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Meet' },
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
@@ -151,8 +100,8 @@ export default {
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' }
     ]
     return {
-      apps,
-      apptow
+      appData,
+      towData
     }
   }
 }
