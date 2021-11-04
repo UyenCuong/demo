@@ -4,7 +4,7 @@
       <a-col :flex="3">
         <app-icon :name="'card-multiple-outline'"></app-icon>
         <span>www.destop.com</span>
-        <slot name="namedesk"> <p>Desktop.com Help Center</p></slot>
+        <slot name="namedesk"> <p>{{getmakequestion}}</p></slot>
       </a-col>
       <a-col :flex="2"
         ><img
@@ -24,7 +24,26 @@
 </template>
 
 <script lang="ts">
-export default {}
+import { computed } from '@vue/reactivity'
+
+interface Popps {
+   makequestion?: string,
+ }
+
+export default {
+  props: {
+    makequestion: {
+      type: String
+    }
+  },
+  setup (props: Popps) {
+    const getmakequestion = computed(() => props.makequestion)
+
+    return {
+      getmakequestion
+    }
+  }
+}
 </script>
 
 <style lang="scss">

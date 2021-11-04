@@ -19,22 +19,8 @@
     </a-row>
     <a-row class="folder">
       <a-col :span="8" v-for="(item, index) in data" :key="index">
-        <ContentDeskItem>
-          <template v-slot:namedesk>
-            <p>What is a desktop ?</p>
-          </template>
-        </ContentDeskItem>
+        <ContentDeskItem :src="item.makequestion" />
       </a-col>
-      <!-- <a-col :span="10">
-        <ContentDesk></ContentDesk>
-      </a-col>
-      <a-col :span="10" :offset="2">
-        <ContentDesk>
-          <template v-slot:namedesk>
-            <p>What is a desktop ?</p>
-          </template>
-        </ContentDesk>
-      </a-col> -->
     </a-row>
   </div>
 </template>

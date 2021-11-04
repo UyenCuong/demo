@@ -2,7 +2,7 @@
   <a-row type="flex">
     <a-col :span="16">
       <ContentApps :data="appData"/>
-      <ContentDesk :data="[1,2,3]"/>
+      <ContentDesk :data="question"/>
     </a-col>
     <a-col :span="8">
       <ContentsToolbar>
@@ -68,7 +68,9 @@ import ContentApps from './ContentApps.vue'
    src: string,
    title: string
  }
-
+interface Desktop {
+   makequestion: string,
+ }
 export default {
   components: {
     ContentApps,
@@ -79,29 +81,26 @@ export default {
   setup () {
     const appData:Array<App> = [
       { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_meet_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png', title: 'Meet' },
-      { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' }
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Groups for Business' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Docs' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png', title: 'Forms' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png', title: 'Google Chat' },
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png', title: 'Google Hangouts' },
+      { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Jamboard' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_gmail_512dp.png', title: 'Gmail' },
+      { src: 'https://ssl.gstatic.com/keep/icon_2020q4_128.png', title: 'Keep' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_64dp.png', title: 'Drive and Docs' },
+      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/contacts_512dp.png', title: 'Contacts' },
+      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Sheets' }
     ]
-    const towData:Array<App> = [
-      { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Meet' }
+    const question:Array<Desktop> = [
+      { makequestion: 'Desktop.com Help Center' },
+      { makequestion: 'What is a desktop ?' },
+      { makequestion: 'How to create a desktop ?' }
     ]
     return {
       appData,
-      towData
+      question
     }
   }
 }

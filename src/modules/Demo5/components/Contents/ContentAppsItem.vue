@@ -49,7 +49,7 @@ img {
 .bkr__img {
   background-color: $background-white;
   height: 130px;
-  width: $width-distance;
+  width: 110px;
   border-radius: 4px;
   margin-top: 20px;
 }
