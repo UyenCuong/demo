@@ -9,17 +9,16 @@
   </ContentsToolbar>
   <div class="row-content">
     <a-row class="folder">
-      <a-col :xs="{ span: 5 }"
+      <a-col :xs="{ span: 5 }" class="row-content--img"
         ><img
           src="https://thumbs.dreamstime.com/z/nfolder-data-folder-vector-icon-editable-125303145.jpg"
-          alt=""
         />
         <h5>Admin Support Folder</h5></a-col
       >
     </a-row>
     <a-row class="folder">
       <a-col :span="8" v-for="(item, index) in data" :key="index">
-        <ContentDeskItem :src="item.makequestion" />
+        <ContentDeskItem :makequestion="item.makequestion" :src="item.src" />
       </a-col>
     </a-row>
   </div>
@@ -55,5 +54,8 @@ export default {
       margin-left: 3px;
     }
   }
+}
+.row-content--img {
+  margin-top: 20px;
 }
 </style>

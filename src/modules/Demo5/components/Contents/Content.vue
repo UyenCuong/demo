@@ -1,8 +1,8 @@
 <template>
   <a-row type="flex">
     <a-col :span="16">
-      <ContentApps :data="appData"/>
-      <ContentDesk :data="question"/>
+      <ContentApps :data="appData" />
+      <ContentDesk :data="question" />
     </a-col>
     <a-col :span="8">
       <ContentsToolbar>
@@ -13,90 +13,97 @@
           <app-icon :name="'comment-multiple-outline'"></app-icon>
         </template>
       </ContentsToolbar>
-      <div class="bkr__chats">
-        <div class="bkr__center">
-          <div class="bkr__center--wrap">
-            <p class="today">Today</p>
-            <a-row>
-              <div class="chat__icon">
-                <a-col
-                  ><app-icon :name="'card-multiple-outline'" class="blueicon"></app-icon
-                ></a-col>
-              </div>
-              <a-col>
-                <div class="desktop">
-                  <p>Destop.com 09:11 AM</p>
-                  <p class="text">
-                    Welcome to Desktop.com<br />
-                    This is where you can chat with<br />
-                    af other invited members of ths<br />
-                    specific desktop. Go ahead<br />
-                    and Invite membeif you haven't<br />
-                    aiready To start a 1 on 1 chat<br />
-                    or a now group chat, s mply go <br />to Chats and click on
-                    new chat
-                  </p>
-                </div>
-              </a-col>
-            </a-row>
-            <div>
-              <a-input
-                placeholder="Message General"
-                v-model:value="userName"
-                class="input__mess"
-              >
-                <template #suffix>
-                  <app-icon :name="'paperclip'"></app-icon>
-                  <app-icon :name="'refresh-auto'"></app-icon>
-                  <app-icon :name="'send'"></app-icon>
-                </template>
-              </a-input>
-            </div>
-          </div>
-        </div>
-      </div>
+      <ContentChat />
     </a-col>
   </a-row>
 </template>
 
 <script lang="ts">
 import ContentDesk from './ContentDesk.vue'
-import ContentsToolbar from './ContentsToolbar.vue'
 import ContentApps from './ContentApps.vue'
+import ContentChat from './ContentChat.vue'
+import ContentsToolbar from './ContentsToolbar.vue'
 
- interface App {
-   src: string,
-   title: string
- }
+interface App {
+  src: string;
+  title: string;
+}
 interface Desktop {
-   makequestion: string,
- }
+  makequestion: string;
+  src: string;
+}
 export default {
   components: {
     ContentApps,
-    ContentsToolbar,
-    ContentDesk
+    ContentDesk,
+    ContentChat,
+    ContentsToolbar
   },
 
   setup () {
-    const appData:Array<App> = [
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_meet_512dp.png', title: 'Meet' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png', title: 'Groups for Business' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png', title: 'Docs' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png', title: 'Forms' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png', title: 'Google Chat' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png', title: 'Google Hangouts' },
-      { src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png', title: 'Jamboard' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_gmail_512dp.png', title: 'Gmail' },
-      { src: 'https://ssl.gstatic.com/keep/icon_2020q4_128.png', title: 'Keep' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_64dp.png', title: 'Drive and Docs' },
-      { src: 'https://ssl.gstatic.com/images/icons/material/product/1x/contacts_512dp.png', title: 'Contacts' },
-      { src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png', title: 'Sheets' }
+    const appData: Array<App> = [
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_meet_512dp.png',
+        title: 'Meet'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png',
+        title: 'Groups for Business'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png',
+        title: 'Docs'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_forms_512dp.png',
+        title: 'Forms'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_chat_512dp.png',
+        title: 'Google Chat'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png',
+        title: 'Google Hangouts'
+      },
+      {
+        src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png',
+        title: 'Jamboard'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_gmail_512dp.png',
+        title: 'Gmail'
+      },
+      {
+        src: 'https://ssl.gstatic.com/keep/icon_2020q4_128.png',
+        title: 'Keep'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_64dp.png',
+        title: 'Drive and Docs'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/icons/material/product/1x/contacts_512dp.png',
+        title: 'Contacts'
+      },
+      {
+        src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_sheets_512dp.png',
+        title: 'Sheets'
+      }
     ]
-    const question:Array<Desktop> = [
-      { makequestion: 'Desktop.com Help Center' },
-      { makequestion: 'What is a desktop ?' },
-      { makequestion: 'How to create a desktop ?' }
+    const question: Array<Desktop> = [
+      {
+        makequestion: 'Desktop.com Help Center',
+        src: 'https://cdn.desktop.com/assets/images/ddbd3a0a-dc44-11eb-9582-42010a200015/content/link-data-6a1a71a3-a409-11eb-9567-42010a200013-preview-60e0d53e02735012819475.png?w=76&h=76'
+      },
+      {
+        makequestion: 'What is a desktop ?',
+        src: 'https://cdn.desktop.com/assets/images/e21a57c4-dc44-11eb-9582-42010a200015/content/link-data-d36ea6ef-d9d6-11eb-9582-42010a200015-preview-60e0d54558ba1303269651.png?w=76&h=76'
+      },
+      {
+        makequestion: 'How to create a desktop ?',
+        src: 'https://cdn.desktop.com/assets/images/e7263fd0-dc44-11eb-9582-42010a200015/content/link-data-d36c72d6-d9d6-11eb-9582-42010a200015-preview-60e0d54dc7849799142598.png?w=76&h=76'
+      }
     ]
     return {
       appData,
@@ -107,11 +114,10 @@ export default {
 </script>
 
 <style lang="scss">
-
 .row-content {
   margin-left: 15px;
   border-radius: 5px;
-  background:  $background-gray;
+  background: $background-gray;
   height: 340px;
   .folder {
     margin-top: 20px;
@@ -132,7 +138,7 @@ export default {
 }
 
 .bkr__chats {
-  background-color:  $background-gray;
+  background-color: $background-gray;
   height: 728px;
   padding: 18px;
   border-radius: 5px;
@@ -143,9 +149,9 @@ export default {
     border-radius: 5px;
     .input__mess {
       width: auto;
-      margin-left: 20px;
-      border-radius: 5px;
-      margin-top: 360px;
+      margin: 0 30px;
+      border-radius: 8px;
+      margin-top: 300px;
     }
     .today {
       text-align: center;
@@ -155,9 +161,6 @@ export default {
   .chat__icon {
     padding-top: 35px;
   }
-  .text {
-    background-color:  $background-gray;
-  }
   .desktop {
     margin-left: 30px;
   }
@@ -165,5 +168,4 @@ export default {
     color: $blue;
   }
 }
-
 </style>
