@@ -3,7 +3,7 @@
     <a-col :flex="14">
       <ContentsToolbar></ContentsToolbar>
       <div class="row-content">
-        <a-row type="flex" justify="space-around" align="middle" class="mr__br">
+        <a-row type="flex" justify="space-around" align="middle">
           <a-col :xs="{ span: 4 }"><ContentApps></ContentApps></a-col>
           <a-col :xs="{ span: 4 }">
             <ContentApps>
@@ -127,7 +127,7 @@
       </div>
       <ContentsToolbar>
         <template v-slot:title>
-          <div><span>Link 11</span></div>
+          <div  class="fonttitle"><span>Link 11</span></div>
         </template>
         <template v-slot:action>
           <app-icon :name="'folder-plus-outline'"></app-icon>
@@ -160,7 +160,7 @@
     <a-col :flex="10">
       <ContentsToolbar>
         <template v-slot:title>
-          <div><span>Chat</span></div>
+          <div class="fonttitle"><span>Chat</span></div>
         </template>
         <template v-slot:action>
           <app-icon :name="'comment-multiple-outline'"></app-icon>
@@ -171,11 +171,13 @@
           <div class="bkr__center--wrap">
             <p class="today">Today</p>
             <a-row>
-              <div class="chat__icon"><a-col
-                ><app-icon :name="'card-multiple-outline'"></app-icon
-              ></a-col></div>
+              <div class="chat__icon">
+                <a-col
+                  ><app-icon :name="'card-multiple-outline'" class="blueicon"></app-icon
+                ></a-col>
+              </div>
               <a-col>
-                <div claa="desktop">
+                <div class="desktop">
                   <p>Destop.com 09:11 AM</p>
                   <p class="text">
                     Welcome to Desktop.com<br />
@@ -191,14 +193,18 @@
               </a-col>
             </a-row>
             <div>
-        <a-input placeholder="Message General" v-model:value="userName" class="input__mess">
-          <template #suffix>
-            <app-icon :name="'paperclip'"></app-icon>
-             <app-icon :name="'refresh-auto'"></app-icon>
-              <app-icon :name="'send'"></app-icon>
-          </template>
-        </a-input>
-      </div>
+              <a-input
+                placeholder="Message General"
+                v-model:value="userName"
+                class="input__mess"
+              >
+                <template #suffix>
+                  <app-icon :name="'paperclip'"></app-icon>
+                  <app-icon :name="'refresh-auto'"></app-icon>
+                  <app-icon :name="'send'"></app-icon>
+                </template>
+              </a-input>
+            </div>
           </div>
         </div>
       </div>
@@ -219,84 +225,66 @@ export default {
 }
 </script>
 
-<style>
-.content {
-  background: white;
-  height: 709px;
-  width: 1025px;
-}
-.toolbar {
-  display: flex;
-  justify-content: space-between;
-}
-.toolbar__chat {
-  display: flex;
-  justify-content: space-between;
-}
-img {
-  height: 100px;
-  object-fit: cover;
-  width: 100px;
-  margin: 5px;
-  border-radius: 3px;
-}
+<style lang="scss">
+
 .row-content {
   margin-left: 15px;
   border-radius: 5px;
-  background: #bfbfbf;
+  background:  $background-gray;
   height: 340px;
-}
-.bkr__img {
-  background-color: white;
-  height: 130px;
-  width: 120px;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-.mr__br {
-  margin-bottom: 15px;
-  margin-left: 10px;
-}
-.title {
-  text-align: center;
+  .folder {
+    margin-top: 20px;
+    margin-left: 10px;
+  }
+  .title {
+    text-align: center;
+  }
+  .toolbar__chat {
+    display: flex;
+    justify-content: space-between;
+    .content {
+      background: $background-white;
+      height: 709px;
+      width: 1025px;
+    }
+  }
 }
 
-.icon-sp {
-  display: flex;
-  justify-content: space-between;
-}
-.folder {
-  margin-top: 20px;
-  margin-left: 10px;
-}
 .bkr__chats {
-  background-color: #bfbfbf;
-  height: 745px;
+  background-color:  $background-gray;
+  height: 725px;
   width: 300px;
   padding: 18px;
   border-radius: 5px;
   margin-left: 10px;
+  .bkr__center {
+    background-color: $background-white;
+    height: 700px;
+    width: 270px;
+    border-radius: 5px;
+    .input__mess {
+      width: 240px;
+      margin-left: 20px;
+      border-radius: 5px;
+      margin-top: 380px;
+    }
+    .today {
+      text-align: center;
+      padding-top: 10px;
+    }
+  }
+  .chat__icon {
+    padding-top: 35px;
+  }
+  .text {
+    background-color:  $background-gray;
+  }
+  .desktop {
+    margin-left: 30px;
+  }
+  .blueicon {
+    color: $blue;
+  }
 }
-.today {
-  text-align: center;
-  padding-top: 10px;
-}
-.bkr__center {
-  background-color: white;
-  height: 700px;
-  width: 270px;
-  border-radius: 5px;
-}
-.input__mess {
-  width: 240px;
-  margin-left: 20px;
-  border-radius: 5px;
-  margin-top: 380px;
-}
-.text {
-  background-color: #bfbfbf;
-}
-.chat__icon {
-  padding-top: 32px;
-}
+
 </style>

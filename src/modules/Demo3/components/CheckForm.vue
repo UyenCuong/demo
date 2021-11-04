@@ -103,15 +103,15 @@ export default {
       width: $width-distance;
     .form__feature--input {
       height: $height-form;
-    .form__feature--all {
-      text-align: center;
-      display: flex;
     .form__feature--input {
       height: $height-form;
           }
         }
       }
     }
-  }
 }
+.form__feature--all {
+      text-align: center;
+      display: flex;
+  }
 </style>

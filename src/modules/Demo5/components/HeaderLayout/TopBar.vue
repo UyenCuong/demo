@@ -7,8 +7,13 @@
     :style="{ lineHeight: '64px' }"
   >
     <div class="header__topbar">
-      <div>
+      <div class="header__topbar--title">
+        <div class="header__topbar--name">
         <a-menu-item key="1">navan</a-menu-item>
+      </div>
+       <div >
+        <a-menu-item key="2">navan0710@gmail.com</a-menu-item>
+      </div>
       </div>
       <div>
         <a-input placeholder="Search in desktop" v-model:value="userName">
@@ -40,6 +45,12 @@
     justify-content: space-between;
     width: 100%;
     background-color: #e7cccc79;
+    &--title{
+      display: block;
+    }
+    &--name {
+      height: 20px;
+    }
     .ant-input-affix-wrapper {
       width: 450px;
     }

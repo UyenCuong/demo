@@ -12,5 +12,20 @@
 <script>
 </script>
 
-<style>
+<style lang="scss">
+img {
+  height: 100px;
+  object-fit: cover;
+  width: 100px;
+  margin: 5px;
+  border-radius: 3px;
+}
+.bkr__img {
+  background-color: $background-white;
+  height: 130px;
+  width: $width-distance;
+  border-radius: 4px;
+  margin-top: 20px;
+}
+
 </style>

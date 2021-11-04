@@ -30,7 +30,7 @@ export default {
   height: 260px;
   background-color:$color-white;
   position: absolute;
-  top: 35%;
+  top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   overflow: hidden;

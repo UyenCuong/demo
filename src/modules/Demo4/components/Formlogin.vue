@@ -133,6 +133,7 @@ export default {
       object-fit: cover;
       border-top-left-radius: $boder-radiuss;
       border-bottom-left-radius: $boder-radiuss;
+      margin: 0;
     }
   }
     .formlogin {
@@ -157,5 +158,6 @@ export default {
       }
     }
   }
+
 }
 </style>
