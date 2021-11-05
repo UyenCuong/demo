@@ -1,4 +1,12 @@
 <template>
+      <ContentsToolbar>
+        <template v-slot:title>
+          <div class="fonttitle"><span>Chat</span></div>
+        </template>
+        <template v-slot:action>
+          <app-icon :name="'comment-multiple-outline'"></app-icon>
+        </template>
+        </ContentsToolbar>
   <div class="bkr__chats">
     <div class="bkr__center">
       <div class="bkr__center--wrap">
@@ -45,7 +53,12 @@
 </template>
 
 <script>
-export default {}
+import ContentsToolbar from './ContentsToolbar.vue'
+export default {
+  components: {
+    ContentsToolbar
+  }
+}
 </script>
 
 <style lang="scss">
@@ -55,7 +68,6 @@ export default {}
   width: auto;
 }
 .input {
-  width: 300px;
   height: 320px;
     position: relative;
     .input__space{

@@ -5,14 +5,6 @@
       <ContentDesk :data="question" />
     </a-col>
     <a-col :span="8">
-      <ContentsToolbar>
-        <template v-slot:title>
-          <div class="fonttitle"><span>Chat</span></div>
-        </template>
-        <template v-slot:action>
-          <app-icon :name="'comment-multiple-outline'"></app-icon>
-        </template>
-      </ContentsToolbar>
       <ContentChat />
     </a-col>
   </a-row>
@@ -22,7 +14,6 @@
 import ContentDesk from './ContentDesk.vue'
 import ContentApps from './ContentApps.vue'
 import ContentChat from './ContentChat.vue'
-import ContentsToolbar from './ContentsToolbar.vue'
 
 interface App {
   src: string;
@@ -36,8 +27,8 @@ export default {
   components: {
     ContentApps,
     ContentDesk,
-    ContentChat,
-    ContentsToolbar
+    ContentChat
+
   },
 
   setup () {
