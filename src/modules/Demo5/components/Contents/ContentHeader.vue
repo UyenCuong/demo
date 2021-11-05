@@ -35,7 +35,7 @@ export default {}
   justify-content: space-between;
   background-color: $background-white;
   .btntoolbar {
-    margin: 0 10px;
+    margin: 0 4px;
   }
   .coloricon {
     color: $blue;

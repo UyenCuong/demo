@@ -2,14 +2,16 @@
   <div class="brk__chat">
     <a-row type="flex">
       <a-col :flex="3" class="brk__chat--des">
-        <img src="https://f6183f6bc37ad0.desktop.com/images/e0da884b8b2d82366bb2801af38b2fa7-apple-touch-logo-192x192.png" class="brk__chat--icon">
-        <span>www.destop.com</span>
-        <slot name="namedesk"> <p>{{getmakequestion}}</p></slot>
+        <img
+          src="https://f6183f6bc37ad0.desktop.com/images/e0da884b8b2d82366bb2801af38b2fa7-apple-touch-logo-192x192.png"
+          class="brk__chat--icon"
+        />
+        <span class="brk__chat--title">www.destop.com</span>
+        <slot name="namedesk">
+          <p>{{ getmakequestion }}</p></slot
+        >
       </a-col>
-      <a-col :flex="2"
-        ><img
-          :src="getsrc"
-      class="brk__chat--img"/></a-col>
+      <a-col :flex="2"><img :src="getsrc" class="brk__chat--img" /></a-col>
     </a-row>
     <div class="icon-sp">
       <div>
@@ -27,9 +29,9 @@
 import { computed } from '@vue/reactivity'
 
 interface Popps {
-   makequestion?: string,
-   src?: string
- }
+  makequestion?: string;
+  src?: string;
+}
 
 export default {
   props: {
@@ -56,19 +58,23 @@ export default {
 .brk__chat {
   background-color: $background-white;
   border-radius: 4px;
-  margin:0 3px;
+  margin: 0 3px;
   &--des {
-    width: 130px;
+    width: 102px;
     margin: 0 6px;
-    height: 100px;
+    height: 90px;
   }
   &--img {
-    height: 70px;
-    width: 70px;
+    height: 50px;
+    width: 50px;
+    margin-top: 10px;
   }
   &--icon {
     width: 15px;
     height: 15px;
+  }
+  &--title {
+    margin: 0;
   }
   .icon-sp {
     display: flex;

@@ -1,11 +1,11 @@
 <template>
-<div class="contact">
-  <form class="contact__form">
-  <HeaderForm />
-  <ContentForm />
-  <FooterForm />
-  </form>
-</div>
+  <div class="contact">
+    <form class="contact__form">
+      <HeaderForm />
+      <ContentForm />
+      <FooterForm />
+    </form>
+  </div>
 </template>
 
 <script lang="ts">

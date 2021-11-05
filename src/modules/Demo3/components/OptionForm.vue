@@ -8,13 +8,10 @@
         class="framework__list"
       >
         <li class="framework__list--title">
-           <input
-            class="framework__list--input"
-            type="radio" name="lang"
-           >
-           <p class="framework__list--text">
-             {{ framework.title }}
-           </p>
+          <input class="framework__list--input" type="radio" name="lang" />
+          <p class="framework__list--text">
+            {{ framework.title }}
+          </p>
         </li>
       </ul>
     </div>
@@ -22,13 +19,13 @@
 </template>
 
 <script lang="ts">
-  interface frameworks {
+interface frameworks {
   id: string;
   title: string;
 }
 export default {
   setup () {
-    const frameworks:Array<frameworks> = [
+    const frameworks: Array<frameworks> = [
       { id: '1', title: 'AngularJS' },
       { id: '2', title: 'ReactJS' },
       { id: '3', title: 'VueJS' }
@@ -52,18 +49,17 @@ export default {
       list-style-type: none;
       text-align: center;
       padding: 0;
-    .framework__list--title {
-      display: flex;
-      width: $width-distance;
-    .framework__list--input {
-      height: $height-form;
-    .framework__list--text {
-      margin: 0;
+      .framework__list--title {
+        display: flex;
+        width: $width-distance;
+        .framework__list--input {
+          height: $height-form;
+          .framework__list--text {
+            margin: 0;
+          }
         }
       }
     }
   }
-}
-
 }
 </style>

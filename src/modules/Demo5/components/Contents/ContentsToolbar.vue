@@ -1,7 +1,7 @@
 <template>
   <div class="toolbar">
     <slot name="title">
-      <div class="fonttitle"><span >Apps 13</span></div>
+      <div class="fonttitle"><span>Apps 13</span></div>
     </slot>
     <div class="contenttoolbar">
       <app-icon :name="'magnify'" class="contenttoolbar__icon"></app-icon>
@@ -31,7 +31,7 @@ export default {}
   .fonttitle {
     color: black;
     font-weight: 500;
-    margin-left: 10px;
+    margin-left: 20px;
   }
   .contenttoolbar {
     display: flex;
@@ -40,6 +40,5 @@ export default {}
       margin: 0 10px;
     }
   }
-
 }
 </style>

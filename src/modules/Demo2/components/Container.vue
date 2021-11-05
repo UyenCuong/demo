@@ -1,11 +1,12 @@
 <template>
-  <div class="product-image">
-       <img v-bind:src="image" width="200" height="260">
+  <div class="container">
+    <div class="product-image">
+      <div><img v-bind:src="image" width="200" height="260" /></div>
+    </div>
   </div>
 </template>
 
 <script lang="ts">
-
 export default {
   name: 'Container',
   setup () {
@@ -17,10 +18,11 @@ export default {
 </script>
 
 <style lang="scss">
-.img {
-   width: 300px;
-   height:auto;
-   object-fit: contain;
+.container {
+  .container__img {
+    width: 200px;
+    height: 100%;
+    object-fit: contain;
+  }
 }
-
 </style>

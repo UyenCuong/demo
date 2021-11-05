@@ -1,13 +1,15 @@
 <template>
-  <a-row type="flex">
-    <a-col :span="16">
-      <ContentApps :data="appData" />
-      <ContentDesk :data="question" />
-    </a-col>
-    <a-col :span="8">
-      <ContentChat />
-    </a-col>
-  </a-row>
+  <div class="content">
+    <a-row type="flex">
+      <a-col :span="16">
+        <ContentApps :data="appData" />
+        <ContentDesk :data="question" />
+      </a-col>
+      <a-col :span="8">
+        <ContentChat />
+      </a-col>
+    </a-row>
+  </div>
 </template>
 
 <script lang="ts">
@@ -28,7 +30,6 @@ export default {
     ContentApps,
     ContentDesk,
     ContentChat
-
   },
 
   setup () {
@@ -39,7 +40,7 @@ export default {
       },
       {
         src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png',
-        title: 'Groups for Business'
+        title: 'Groups Business'
       },
       {
         src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png',
@@ -105,59 +106,27 @@ export default {
 </script>
 
 <style lang="scss">
-.row-content {
-  margin-left: 15px;
-  border-radius: 5px;
-  background: $background-gray;
-  height: 340px;
-  .folder {
-    margin-top: 20px;
-    margin-left: 10px;
-  }
-  .title {
-    text-align: center;
-  }
-  .toolbar__chat {
-    display: flex;
-    justify-content: space-between;
-    .content {
-      background: $background-white;
-      height: 709px;
-      width: auto;
-    }
-  }
-}
-
-.bkr__chats {
-  background-color: $background-gray;
-  height: 728px;
-  padding: 18px;
-  border-radius: 5px;
-  margin-left: 10px;
-  .bkr__center {
-    background-color: $background-white;
-    height: 700px;
+  .row-content {
+    margin-left: 15px;
     border-radius: 5px;
-    .input__mess {
-      width: 320px;
-      margin: 0 30px;
-      border-radius: 8px;
-      margin-top: 300px;
+    background: $background-gray;
+    height: 300px;
+    .folder {
+      margin-top: 20px;
+      margin-left: 10px;
     }
-    .today {
+    .title {
       text-align: center;
-      padding-top: 10px;
     }
+    .toolbar__chat {
+      display: flex;
+      justify-content: space-between;
+      .content {
+        background: $background-white;
+        height: 709px;
+        width: auto;
+      }
+    }
+
   }
-  .chat__icon {
-    padding-top: 35px;
-  }
-  .desktop {
-    margin-left: 30px;
-  }
-  .blueicon {
-   margin-left: 30px;
-   color: blue;
-  }
-}
 </style>

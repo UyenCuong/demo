@@ -1,12 +1,12 @@
 <template>
-<div class="form">
-   <h1 class="form__title">
-     {{ sign }}
-   </h1>
-   <p>
-     {{ based }}
-   </p>
- </div>
+  <div class="form">
+    <h1 class="form__title">
+      {{ sign }}
+    </h1>
+    <p>
+      {{ based }}
+    </p>
+  </div>
 </template>
 
 <script lang="ts">
@@ -30,5 +30,4 @@ export default {
     color: black;
   }
 }
-
 </style>

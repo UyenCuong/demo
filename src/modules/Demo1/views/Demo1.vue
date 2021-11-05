@@ -49,7 +49,7 @@ export default {
     color: $color-white;
     width: $width-app;
     height: $height-app;
-    top: 70%;
+    top: 50%;
     left: 50%;
     position: absolute;
     transform: translate(-50%, -50%);

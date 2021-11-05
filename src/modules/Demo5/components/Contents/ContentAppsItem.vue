@@ -1,11 +1,13 @@
 <template>
-  <div class="bkr__img">
-    <slot name="img"
-      ><img
-        :src="getSrc"
-        alt=""
-    /></slot>
-    <slot name="nameapp"> <h5 class="title">{{getTitle}}</h5></slot>
+  <div class="contentappitem">
+    <div class="contentappitem__app">
+      <div class="bkr__img">
+        <slot name="img"><img :src="getSrc" alt="" /></slot>
+        <slot name="nameapp">
+          <h5 class="title">{{ getTitle }}</h5></slot
+        >
+      </div>
+    </div>
   </div>
 </template>
 
@@ -13,9 +15,9 @@
 import { computed } from '@vue/reactivity'
 
 interface Pops {
-   src?: string,
-   title?: string
- }
+  src?: string;
+  title?: string;
+}
 
 export default {
   props: {
@@ -38,20 +40,23 @@ export default {
 }
 </script>
 
-<style lang="scss">
-img {
-  height: 100px;
-  object-fit: cover;
-  width: 100px;
-  margin: 5px;
-  border-radius: 3px;
+<style lang="scss" scope>
+.contentappitem {
+  .contentappitem__app {
+    .bkr__img {
+      background-color: $background-white;
+      height: 120px;
+      width: 100px;
+      border-radius: 4px;
+      margin-top: 20px;
+    }
+    img {
+      height: 90px;
+      object-fit: cover;
+      width: 90px;
+      margin: 5px;
+      border-radius: 3px;
+    }
+  }
 }
-.bkr__img {
-  background-color: $background-white;
-  height: 130px;
-  width: 110px;
-  border-radius: 4px;
-  margin-top: 20px;
-}
-
 </style>

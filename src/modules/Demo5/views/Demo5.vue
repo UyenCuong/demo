@@ -1,6 +1,6 @@
 <template>
- <a-layout>
-   <SliderBar />
+  <a-layout>
+    <SliderBar />
     <a-layout>
       <a-layout-header>
         <TopBar />
@@ -38,5 +38,4 @@ export default {
 </script>
 
 <style>
-
 </style>

@@ -1,11 +1,18 @@
 <template>
-  <ContentsToolbar></ContentsToolbar>
-  <div class="row-content">
-    <a-row type="flex" justify="space-around" align="middle" class="row-content--item">
-      <a-col :xs="{ span: 4 }" v-for="(item, index) in data" :key="index" >
-        <ContentAppsItem :src="item.src" :title="item.title" />
-      </a-col>
-    </a-row>
+  <div class="contentapp">
+    <ContentsToolbar></ContentsToolbar>
+    <div class="row-content">
+      <a-row
+        type="flex"
+        justify="space-around"
+        align="middle"
+        class="row-content--item"
+      >
+        <a-col :xs="{ span: 4 }" v-for="(item, index) in data" :key="index">
+          <ContentAppsItem :src="item.src" :title="item.title" />
+        </a-col>
+      </a-row>
+    </div>
   </div>
 </template>
 
@@ -24,12 +31,12 @@ export default {
     }
   }
 }
-
 </script>
 
 <style lang="scss">
-.row-content--item {
-  padding-left: 15px;
+.contentapp {
+  .row-content--item {
+    padding: 0 15px;
+  }
 }
-
 </style>

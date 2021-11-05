@@ -35,8 +35,8 @@
             </span>
           </template>
           <div class="clorItem">
-          <a-menu-item key="6" >You don't have any shared destops</a-menu-item>
-          <a-menu-item key="7" >Learn more</a-menu-item>
+            <a-menu-item key="6">You don't have any shared destops</a-menu-item>
+            <a-menu-item key="7">Learn more</a-menu-item>
           </div>
         </a-sub-menu>
         <a-sub-menu key="sub3">
@@ -47,8 +47,10 @@
             </span>
           </template>
           <div class="clorItem">
-            <a-menu-item key="8" >You don't have any private destops</a-menu-item>
-          <a-menu-item key="9" >Learn more</a-menu-item>
+            <a-menu-item key="8"
+              >You don't have any private destops</a-menu-item
+            >
+            <a-menu-item key="9">Learn more</a-menu-item>
           </div>
         </a-sub-menu>
       </div>
@@ -69,11 +71,10 @@ export default {
 </script>
 
 <style lang="scss">
-
 .siderbar {
   min-height: 100vh;
   &__item {
-    min-height: 100vh;
+    height: 100vh;
     background-color: $backround-slide;
   }
   .ant-layout-sider-children {
@@ -88,8 +89,8 @@ export default {
   .hiden {
     display: none;
   }
-  .clorItem{
-    background-color:$backround-slide ;
+  .clorItem {
+    background-color: $backround-slide;
   }
 }
 </style>
