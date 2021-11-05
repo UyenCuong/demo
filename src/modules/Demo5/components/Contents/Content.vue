@@ -156,7 +156,8 @@ export default {
     margin-left: 30px;
   }
   .blueicon {
-    color: $blue;
+   margin-left: 30px;
+   color: blue;
   }
 }
 </style>
