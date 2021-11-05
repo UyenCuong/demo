@@ -26,8 +26,8 @@
             </div>
           </a-col>
         </a-row>
-        <div>
-          <a-input
+        <div class="input">
+          <div class="input__space"><a-input
             placeholder="Message General"
             v-model:value="userName"
             class="input__mess"
@@ -37,7 +37,7 @@
               <app-icon :name="'refresh-auto'"></app-icon>
               <app-icon :name="'send'"></app-icon>
             </template>
-          </a-input>
+          </a-input></div>
         </div>
       </div>
     </div>
@@ -53,5 +53,14 @@ export default {}
   background-color: $background-gray;
   border-radius: 5px;
   width: auto;
+}
+.input {
+  width: 300px;
+  height: 320px;
+    position: relative;
+    .input__space{
+    position: absolute;
+    bottom: 0;
+}
 }
 </style>

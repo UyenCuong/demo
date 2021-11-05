@@ -148,7 +148,7 @@ export default {
     height: 700px;
     border-radius: 5px;
     .input__mess {
-      width: auto;
+      width: 320px;
       margin: 0 30px;
       border-radius: 8px;
       margin-top: 300px;
