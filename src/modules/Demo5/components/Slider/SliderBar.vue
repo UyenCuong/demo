@@ -8,7 +8,7 @@
             <a-avatar
               shape="square"
               size="large"
-              :style="{ backgroundColor: color, marginLeft: '10px' }"
+              :style="{ backgroundColor: color, marginLeft: '10px', border:'1px solid blue', borderRadius:'7px' }"
             >
               {{ avatarValue }}
             </a-avatar>
@@ -50,7 +50,7 @@
 <script lang="ts">
 import { ref } from 'vue'
 const UserList = ['N']
-const colorList = ['#1d3168']
+const colorList = ['#e7cccc79']
 export default ({
   setup () {
     const avatarValue = ref(UserList[0])
