@@ -8,7 +8,8 @@ import {
   Row,
   Col,
   Layout,
-  Menu
+  Menu,
+  Avatar
 
 } from 'ant-design-vue'
 import 'ant-design-vue/dist/antd.css'
@@ -23,7 +24,8 @@ export default {
       Row,
       Col,
       Layout,
-      Menu
+      Menu,
+      Avatar
     ]
     components.map((c) => app.use(c))
   }

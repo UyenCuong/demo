@@ -4,10 +4,14 @@
       <div class="headerlayoutvertical" />
       <a-menu theme="dark" mode="vertical" :style="{ lineHeight: '64px' }">
         <div class="header__menu--vertical">
-          <div>
-            <a-menu-item key="5">
-              <div class="iconbr"> <app-icon :name="'alpha-n'" class="iconN"></app-icon></div>
-            </a-menu-item>
+          <div class="br__avatar">
+            <a-avatar
+              shape="square"
+              size="large"
+              :style="{ backgroundColor: color, marginLeft: '10px' }"
+            >
+              {{ avatarValue }}
+            </a-avatar>
             <div class="sliderbar">
               <div class="sliderbar__wrap">
                 <div>
@@ -44,6 +48,25 @@
   </div>
 </template>
 <script lang="ts">
+import { ref } from 'vue'
+const UserList = ['N']
+const colorList = ['#1d3168']
+export default ({
+  setup () {
+    const avatarValue = ref(UserList[0])
+    const color = ref(colorList[0])
+    const changeValue = () => {
+      const index = UserList.indexOf(avatarValue.value)
+      avatarValue.value = index < UserList.length - 1 ? UserList[index + 1] : UserList[0]
+      color.value = index < colorList.length - 1 ? colorList[index + 1] : colorList[0]
+    }
+    return {
+      avatarValue,
+      color,
+      changeValue
+    }
+  }
+})
 </script>
 
 <style lang="scss">
@@ -61,17 +84,6 @@
   }
   .sliderbar__height--title {
     text-align: center;
-  }
-  .iconbr {
-    background: #1d3168;
-    border: 1px solid blue;
-    width: 35px;
-    height: 35px;
-    margin-top: 5px;
-    border-radius: 2px;
-    .iconN{
-      margin-left: 5px;
-    }
   }
 }
 </style>
