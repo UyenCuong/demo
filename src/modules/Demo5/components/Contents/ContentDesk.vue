@@ -48,7 +48,7 @@ export default {
   .brk__chat {
     background-color: $background-white;
     border-radius: 4px;
-    width: 200px;
+    width: 205px;
     .icon-sp {
       display: flex;
       justify-content: space-between;
