@@ -6,6 +6,7 @@ import { Demo2Module } from '@/modules/Demo2'
 import { Demo3Module } from '@/modules/Demo3'
 import { Demo4Module } from '@/modules/Demo4'
 import { Demo5Module } from '@/modules/Demo5'
+import { Demo6Module } from '@/modules/Demo6'
 // import '@/styles/main.scss'
 registerVueModule({
   Antd
@@ -14,5 +15,6 @@ registerVueModule({
   Demo2Module,
   Demo3Module,
   Demo4Module,
-  Demo5Module
+  Demo5Module,
+  Demo6Module
 ])

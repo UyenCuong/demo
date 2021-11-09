@@ -34,7 +34,7 @@ h1 {
     &::after {
       content: "";
       position: absolute;
-      top: 80px;
+      top: 95px;
       left: 0;
       width: 100%;
       height: 1px;

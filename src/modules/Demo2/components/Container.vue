@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="product-image">
-      <div><img v-bind:src="image" width="200" height="260" /></div>
+      <div><img v-bind:src="image" width="228" height="260" /></div>
     </div>
   </div>
 </template>
@@ -19,6 +19,7 @@ export default {
 
 <style lang="scss">
 .container {
+  padding: 0;
   .container__img {
     width: 200px;
     height: 100%;

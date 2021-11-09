@@ -1,4 +1,5 @@
 <template>
+<div class="contents">
   <div class="content">
     <a-row type="flex">
       <a-col :span="16">
@@ -10,6 +11,8 @@
       </a-col>
     </a-row>
   </div>
+  </div>
+
 </template>
 
 <script lang="ts">
@@ -40,7 +43,7 @@ export default {
       },
       {
         src: 'https://ssl.gstatic.com/images/icons/material/product/1x/groups_512dp.png',
-        title: 'Groups Business'
+        title: ' Business'
       },
       {
         src: 'https://ssl.gstatic.com/images/branding/product/1x/hh_docs_512dp.png',
@@ -56,7 +59,7 @@ export default {
       },
       {
         src: 'https://ssl.gstatic.com/images/icons/material/product/1x/hangouts_512dp.png',
-        title: 'Google Hangouts'
+        title: ' Hangouts'
       },
       {
         src: 'https://www.gstatic.com/images/branding/product/1x/jamboard_512dp.png',
@@ -72,7 +75,7 @@ export default {
       },
       {
         src: 'https://ssl.gstatic.com/images/branding/product/2x/drive_2020q4_64dp.png',
-        title: 'Drive and Docs'
+        title: 'Drive '
       },
       {
         src: 'https://ssl.gstatic.com/images/icons/material/product/1x/contacts_512dp.png',
@@ -106,6 +109,7 @@ export default {
 </script>
 
 <style lang="scss">
+.contents{
   .row-content {
     margin-left: 15px;
     border-radius: 5px;
@@ -127,6 +131,6 @@ export default {
         width: auto;
       }
     }
-
   }
+}
 </style>

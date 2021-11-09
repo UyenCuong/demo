@@ -18,10 +18,7 @@
           name="password"
         >
           <a-input type="password" v-model:value="dataForm.password" />
-        </a-form-item>
-        <a-form-item label="Repeat Password" name="repeatpassword">
-          <a-input type="password" v-model:value="dataForm.repeatpassword" />
-        </a-form-item>
+           </a-form-item>
         <a-form-item class="formlogin__submit">
           <a-button @click="onSubmit()"> Sign Up </a-button>
           <a-anchor-link
@@ -42,30 +39,30 @@ export default {
     const formRef = ref()
     const dataForm = reactive({
       email: '',
-      password: '',
-      repeatpassword: ''
+      password: ''
+
     })
-    const validatePass = async (rule: RuleObject, value: string) => {
-      if (value === '') {
-        return Promise.reject(new Error('Please input the password'))
-      } else if (value.length < 6) {
-        return Promise.reject(new Error('Password is too short'))
-      } else {
-        if (dataForm.repeatpassword !== '') {
-          formRef.value.validateFields('repeatpassword')
-        }
-        return Promise.resolve()
-      }
-    }
-    const validatePass2 = async (rule: RuleObject, value: string) => {
-      if (value === '') {
-        return Promise.reject(new Error('Please input the password again'))
-      } else if (value !== dataForm.password) {
-        return Promise.reject(new Error('Two passwords do not match'))
-      } else {
-        return Promise.resolve()
-      }
-    }
+    // const validatePass = async (rule: RuleObject, value: string) => {
+    //   if (value === '') {
+    //     return Promise.reject(new Error('Please input the password'))
+    //   } else if (value.length < 6) {
+    //     return Promise.reject(new Error('Password is too short'))
+    //   } else {
+    //     if (dataForm.repeatpassword !== '') {
+    //       formRef.value.validateFields('repeatpassword')
+    //     }
+    //     return Promise.resolve()
+    //   }
+    // }
+    // const validatePass2 = async (rule: RuleObject, value: string) => {
+    //   if (value === '') {
+    //     return Promise.reject(new Error('Please input the password again'))
+    //   } else if (value !== dataForm.password) {
+    //     return Promise.reject(new Error('Two passwords do not match'))
+    //   } else {
+    //     return Promise.resolve()
+    //   }
+    // }
     const rules = reactive({
       email: [
         {
@@ -80,14 +77,7 @@ export default {
       password: [
         {
           required: true,
-          trigger: 'change',
-          validator: validatePass
-        }
-      ],
-      repeatpassword: [
-        {
-          required: true,
-          validator: validatePass2
+          trigger: 'change'
         }
       ]
     })
@@ -96,6 +86,8 @@ export default {
         console.log('values', dataForm, toRaw(dataForm))
       })
     }
+    // const user = ref('uyencuong@gmail.com')
+    // const pass = ref('123456')
     return {
       formRef,
       rules,

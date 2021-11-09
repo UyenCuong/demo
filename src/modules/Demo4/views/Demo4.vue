@@ -1,28 +1,33 @@
 <template>
-  <div class="formcat">
-    <Page />
-    <Formlogin />
+  <div id="nav">
+    <div class="login" @click="onLogin">Login</div>
+    <div class="register" @click="onRegister">Register</div>
+    </div>
+  <div class="container-fluid">
+      <router-view/>
   </div>
 </template>
-<script langs="ts">
-import Page from '@/modules/Demo4/components/Page.vue'
-import Formlogin from '@/modules/Demo4/components/Formlogin.vue'
+
+<script lang="ts">
+import { useRoute, useRouter } from 'vue-router'
 export default {
-  components: {
-    Page,
-    Formlogin
+  setup () {
+    const route = useRoute()
+    const router = useRouter()
+    const onLogin = () => {
+      router.push({ name: 'login' })
+    }
+    const onRegister = () => {
+      router.push({ name: 'register' })
+    }
+    return {
+      onLogin,
+      onRegister
+    }
   }
 }
 </script>
-<style langs="ts">
-.formcat {
-  background-color: hsl(101, 87%, 51%);
-  background-image: linear-gradient(
-    to right,
-    hsl(101, 87%, 51%),
-    hsl(101, 88%, 16%)
-  );
-  height: 600px;
-  width: auto;
-}
+
+<style>
+
 </style>

@@ -8,7 +8,7 @@
         />
         <span class="brk__chat--title">www.destop.com</span>
         <slot name="namedesk">
-          <p>{{ getmakequestion }}</p></slot
+          <p class="brk__chat--titles">{{ getmakequestion }}</p></slot
         >
       </a-col>
       <a-col :flex="2"><img :src="getsrc" class="brk__chat--img" /></a-col>
@@ -75,10 +75,16 @@ export default {
   }
   &--title {
     margin: 0;
+    font-size: 10px;
+  }
+  &--titles {
+    font-size:12px;
+    margin: 0;
   }
   .icon-sp {
     display: flex;
     justify-content: space-between;
+    width: 167px;
     .greenicon {
       color: $background-white;
       background: rgb(172, 230, 14);

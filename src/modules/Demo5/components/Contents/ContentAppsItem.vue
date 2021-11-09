@@ -4,7 +4,7 @@
       <div class="bkr__img">
         <slot name="img"><img :src="getSrc" alt="" /></slot>
         <slot name="nameapp">
-          <h5 class="title">{{ getTitle }}</h5></slot
+          <div class="title">{{ getTitle }}</div></slot
         >
       </div>
     </div>
@@ -56,6 +56,9 @@ export default {
       width: 90px;
       margin: 5px;
       border-radius: 3px;
+    }
+    .title {
+      text-align: center;
     }
   }
 }

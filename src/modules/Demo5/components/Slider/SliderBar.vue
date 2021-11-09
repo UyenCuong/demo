@@ -72,7 +72,7 @@ export default ({
 <style lang="scss">
 .slderbar {
   .sliderbar__wrap--height {
-    height: 740px;
+    height: 731px;
     position: relative;
     .sliderbar__bt {
       position: absolute;

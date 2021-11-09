@@ -5,8 +5,9 @@
     <router-link :to="{name: 'demo3'}" class="demo3">Demo 3</router-link>
     <router-link :to="{name: 'demo4'}" class="demo4">Demo 4</router-link>
     <router-link :to="{name: 'demo5'}" class="demo5">Demo 5</router-link>
+    <router-link :to="{name: 'demo6'}" class="demo6">Demo 6</router-link>
   </div>
-  <div class="container">
+  <div class="container-fluid">
       <router-view/>
   </div>
 </template>
@@ -21,10 +22,9 @@
 .color {
   color: $promaryColor
 }
-.demo1, .demo2, .demo3, .demo4, .demo5 {
+.demo1, .demo2, .demo3, .demo4, .demo5, .demo6 {
   margin: 20px;
   text-decoration: none;
 }
-.container {
-}
+
 </style>

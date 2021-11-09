@@ -14,7 +14,7 @@
           ><img
             src="https://thumbs.dreamstime.com/z/nfolder-data-folder-vector-icon-editable-125303145.jpg"
           width="100" height="90"/>
-          <h5>Admin Support Folder</h5></a-col
+          <div class="folder__title">Admin Support Folder</div></a-col
         >
       </a-row>
       <a-row class="folder folderitem">
@@ -65,6 +65,9 @@ export default {
   }
   .folderitem {
     margin: 10px 15px;
+  }
+  .folder__title {
+    font-size: 11px;
   }
 }
 </style>

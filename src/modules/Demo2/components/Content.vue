@@ -4,7 +4,7 @@
       <h3>{{ title }}</h3>
     </header>
     <main class="main-content">
-      <h3>{{ target }}</h3>
+      <h4 class="main--content__title">{{ target }}</h4>
       <p>{{ location }}</p>
     </main>
     <footer class="footer-content">
@@ -36,7 +36,7 @@ export default {
 
 <style lang="scss">
 .content {
-  padding: 20px 32px;
+  padding: 20px 12px;
   .header-content {
     margin-bottom: 20px;
     color: $color-content;
@@ -44,9 +44,9 @@ export default {
     &::after {
       content: "";
       position: absolute;
-      top: 22px;
+      top: 35px;
       left: 0;
-      width: 77px;
+      width: 98px;
       height: 2px;
       background-color: $background-colorcontent;
       .main-content {
