@@ -5,8 +5,10 @@
   </div>
 </template>
 <script langs="ts">
+import { onMounted } from 'vue'
 import PageRegister from '@/modules/Demo4/components/Register/PageRegister.vue'
 import FormRegister from '@/modules/Demo4/components/Register/FormRegister.vue'
+import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB.ts'
 export default {
   components: {
     PageRegister,
