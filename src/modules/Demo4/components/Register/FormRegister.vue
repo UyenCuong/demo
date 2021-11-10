@@ -99,17 +99,17 @@ export default {
     })
     const onSubmit = () => {
       formRef.value.validate().then(async () => {
-        console.log('values', dataForm, toRaw(dataForm))
+        // console.log('values', dataForm, toRaw(dataForm))
         const datas: any[] = await get()
         const find = datas.find((item) => item.email === dataForm.email)
-        console.log(find, 'email')
+        // console.log(find, 'email')
         console.log(datas, 'datas')
         create(toRaw(dataForm)).then((data) => {
           console.log('data', data)
         })
-        if (dataForm.email === find.email) {
-          console.log('Email already exists')
-        }
+        // if (dataForm.email === find.email) {
+        //   console.log('Email already exists')
+        // }
         // const validatorEmail = async (rule: RuleObject, value: string) => {
         //   if (dataForm.email === find.email) {
         //     return Promise.reject(new Error('Email already exists'))
@@ -117,6 +117,11 @@ export default {
         //     return Promise.resolve()
         //   }
         // }
+        for (let index = 0; index < datas.length; index++) {
+          if (dataForm.email === datas[index].email) {
+            alert('Email already exists')
+          }
+        }
       })
     }
     return {
