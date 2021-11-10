@@ -24,7 +24,10 @@
           <a-input type="password" v-model:value="dataForm.repeatpassword" />
         </a-form-item>
         <a-form-item class="formlogin__submit">
-          <a-button @click="onSubmit()"> Sign Up </a-button>
+          <a-button @click="onSubmit()" class="login"> Sign Up </a-button>
+          <div class="container-fluid">
+            <router-view />
+          </div>
           <a-anchor-link
             href="#components-anchor-demo-basic"
             title="Terms & conditions"
@@ -35,11 +38,10 @@
   </a-row>
 </template>
 <script lang="ts">
-
-import { RuleObject } from 'ant-design-vue/es/form/interface'
+import { RuleObject, ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
 import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
-
+import { useRoute, useRouter } from 'vue-router'
 export default {
   name: 'Formlogin',
   setup () {
@@ -71,11 +73,23 @@ export default {
         return Promise.resolve()
       }
     }
+    const validatorEmail = async (rule: RuleObject, value: string) => {
+      const datas: any[] = await get()
+      const find = datas.find((item) => item.email === value)
+      if (find) {
+        return Promise.reject(new Error('Email already exists'))
+      } else if (value === '') {
+        return Promise.reject(new Error('Please input the Email again'))
+      } else {
+        return Promise.resolve()
+      }
+    }
     const rules = reactive({
       email: [
         {
-          required: true
-          // validator: validatorEmail
+          required: true,
+          trigger: 'change',
+          validator: validatorEmail
         }
       ],
       password: [
@@ -92,43 +106,19 @@ export default {
         }
       ]
     })
+    const router = useRouter()
     const onSubmit = () => {
       formRef.value.validate().then(async () => {
-        // console.log('values', dataForm, toRaw(dataForm))
-        const datas: any[] = await get()
-        const find = datas.find((item) => item.email === dataForm.email)
-        // console.log(find, 'email')
-        console.log(datas, 'datas')
         create(toRaw(dataForm)).then((data) => {
           console.log('data', data)
         })
-        // if (dataForm.email === find.email) {
-        //   console.log('Email already exists')
-        // }
-        // const validatorEmail = async (rule: RuleObject, value: string) => {
-        //   if (dataForm.email === find.email) {
-        //     return Promise.reject(new Error('Email already exists'))
-        //   } else {
-        //     return Promise.resolve()
-        //   }
-        // }
-        for (let index = 0; index < datas.length; index++) {
-          if (dataForm.email === datas[index].email) {
-            alert('Email already exists')
-          }
-        }
-        // const validateEmail = async (rule: RuleObject, value: string) => {
-        //   for (let index = 0; index < datas.length; index++) {
-        //     if (dataForm.email === datas[index].email) {
-        //       return Promise.reject(new Error('Email already exists'))
-        //     } else if (value === '') {
-        //       return Promise.reject(new Error('Please input the password'))
-        //     } else {
-        //       return Promise.resolve()
-        //     }
-        //   }
-        // }
       })
+      // formRef.value.validate().catch((error: ValidateErrorEntity<any>) => {
+      //   console.log('error', error)
+      // })
+      // if (dataForm = true) {
+      //   router.push({ name: 'login' })
+      // }
     }
     return {
       formRef,
