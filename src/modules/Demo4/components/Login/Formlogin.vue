@@ -33,57 +33,57 @@
 <script lang="ts">
 import { RuleObject } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
+import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
 export default {
   name: 'Formlogin',
   setup () {
+    const { get } = useIndexedDB()
     const formRef = ref()
     const dataForm = reactive({
       email: '',
       password: ''
 
     })
-    // const validatePass = async (rule: RuleObject, value: string) => {
-    //   if (value === '') {
-    //     return Promise.reject(new Error('Please input the password'))
-    //   } else if (value.length < 6) {
-    //     return Promise.reject(new Error('Password is too short'))
-    //   } else {
-    //     if (dataForm.repeatpassword !== '') {
-    //       formRef.value.validateFields('repeatpassword')
-    //     }
-    //     return Promise.resolve()
-    //   }
-    // }
-    // const validatePass2 = async (rule: RuleObject, value: string) => {
-    //   if (value === '') {
-    //     return Promise.reject(new Error('Please input the password again'))
-    //   } else if (value !== dataForm.password) {
-    //     return Promise.reject(new Error('Two passwords do not match'))
-    //   } else {
-    //     return Promise.resolve()
-    //   }
-    // }
+    const validatorEmail = async (rule: RuleObject, value: string) => {
+      const datas: any[] = await get()
+      const find = datas.find((item) => item.email === value)
+      if (find) {
+        return Promise.reject(new Error('Email already exists'))
+      } else if (value === '') {
+        return Promise.reject(new Error('Please input the Email again'))
+      } else {
+        return Promise.resolve()
+      }
+    }
+    const validatePass = async (rule: RuleObject, value: string) => {
+      if (value === '') {
+        return Promise.reject(new Error('Please input the password'))
+      } else if (value.length < 6) {
+        return Promise.reject(new Error('Password is too short'))
+      } else {
+        return Promise.resolve()
+      }
+    }
     const rules = reactive({
       email: [
         {
-          type: 'email',
-          message: 'The input is not valid E-mail!'
-        },
-        {
           required: true,
-          message: 'Please input your E-mail!'
+          trigger: 'change',
+          validator: validatorEmail
         }
       ],
       password: [
         {
           required: true,
-          trigger: 'change'
+          trigger: 'change',
+          validator: validatePass
         }
       ]
     })
     const onSubmit = () => {
-      formRef.value.validate().then(() => {
-        console.log('values', dataForm, toRaw(dataForm))
+      formRef.value.validate().then(async () => {
+        const datas: any[] = await get()
+        console.log('datas', datas)
       })
     }
     // const user = ref('uyencuong@gmail.com')

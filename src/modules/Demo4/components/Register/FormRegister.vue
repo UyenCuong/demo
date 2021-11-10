@@ -112,6 +112,7 @@ export default {
         create(toRaw(dataForm)).then((data) => {
           console.log('data', data)
         })
+        router.push({ name: 'login' })
       })
       // formRef.value.validate().catch((error: ValidateErrorEntity<any>) => {
       //   console.log('error', error)
