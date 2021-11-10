@@ -42,7 +42,7 @@ import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
 export default {
   name: 'Formlogin',
   setup () {
-    const { create } = useIndexedDB()
+    const { create, get } = useIndexedDB()
     const formRef = ref()
     const dataForm = reactive({
       email: '',
@@ -96,23 +96,25 @@ export default {
       ]
     })
     const onSubmit = () => {
-      formRef.value.validate().then(() => {
+      formRef.value.validate().then(async () => {
         console.log('values', dataForm, toRaw(dataForm))
+        const datas: any[] = await get()
+        const find = datas.find((item) => item.email === dataForm.email)
+        console.log(find, 'email')
+        console.log(datas, 'datas')
         create(toRaw(dataForm)).then((data) => {
           console.log('data', data)
         })
-        console.log('data', useIndexedDB)
-        const email = async (rule: RuleObject, value: string) => {
-          if (value === dataForm.email) {
-            return Promise.reject(new Error('Email already exists'))
-          } else {
-            return Promise.resolve()
-          }
-        }
+
+      //   const email = async (rule: RuleObject, value: string) => {
+      //     if (useIndexedDB.email === dataForm.email) {
+      //       return Promise.reject(new Error('Email already exists'))
+      //     } else {
+      //       return Promise.resolve()
+      //     }
+      //   }
       })
     }
-    // const user = ref('uyencuong@gmail.com')
-    // const pass = ref('123456')
     return {
       formRef,
       rules,

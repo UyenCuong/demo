@@ -30,30 +30,31 @@ const useIndexedDB = () => {
     })
   }
 
-  //   const get = async (): Promise<Todo[]> => {
-  //     database.value = await connect()
-  //     return new Promise((resolve, reject) => {
-  //       const transaction = database.value.transaction('users', 'readonly')
-  //       const store = transaction.objectStore('users')
-  //       const result: Todo[] = []
-  //       store.openCursor().onsuccess = (event: any) => {
-  //         const cursor = event.target.result
-  //         console.log('get() onsuccess', cursor)
-  //         if (cursor) {
-  //           result.push(cursor.value)
-  //           cursor.continue()
-  //         }
-  //       }
-  //       transaction.oncomplete = () => {
-  //         console.log('get() oncomplete', result)
-  //         resolve(result)
-  //       }
-  //       transaction.onerror = () => {
-  //         console.log('get() error')
-  //         reject([])
-  //       }
-  //     })
-  //   }
+  const get = async (): Promise<any> => {
+    database.value = await connect()
+    return new Promise((resolve, reject) => {
+      const transaction = database.value.transaction('users', 'readonly')
+      const store = transaction.objectStore('users')
+      const result: any[] = []
+      store.openCursor().onsuccess = (event: any) => {
+        const cursor = event.target.result
+        console.log('get() onsuccess', cursor)
+        if (cursor) {
+          result.push(cursor.value)
+          cursor.continue()
+        }
+      }
+      transaction.oncomplete = () => {
+        console.log('get() oncomplete', result)
+        resolve(result)
+      }
+      transaction.onerror = () => {
+        console.log('get() error')
+        // eslint-disable-next-line prefer-promise-reject-errors
+        reject([])
+      }
+    })
+  }
 
   const create = async (data: Register) => {
     database.value = await connect()
@@ -135,8 +136,8 @@ const useIndexedDB = () => {
 
   return {
     connect,
-    create
-    // get,
+    create,
+    get
     // getById,
     // count,
     // set,
