@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 <template>
   <a-row class="rowcontent">
     <a-col :span="12">
@@ -79,6 +80,7 @@ export default {
         {
           required: true,
           message: 'Please input your E-mail!'
+          // validator: validatorEmail
         }
       ],
       password: [
@@ -105,14 +107,16 @@ export default {
         create(toRaw(dataForm)).then((data) => {
           console.log('data', data)
         })
-
-      //   const email = async (rule: RuleObject, value: string) => {
-      //     if (useIndexedDB.email === dataForm.email) {
-      //       return Promise.reject(new Error('Email already exists'))
-      //     } else {
-      //       return Promise.resolve()
-      //     }
-      //   }
+        if (dataForm.email === find.email) {
+          console.log('Email already exists')
+        }
+        // const validatorEmail = async (rule: RuleObject, value: string) => {
+        //   if (dataForm.email === find.email) {
+        //     return Promise.reject(new Error('Email already exists'))
+        //   } else {
+        //     return Promise.resolve()
+        //   }
+        // }
       })
     }
     return {
