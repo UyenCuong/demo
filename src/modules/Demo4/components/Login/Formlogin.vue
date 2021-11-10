@@ -20,7 +20,7 @@
           <a-input type="password" v-model:value="dataForm.password" />
            </a-form-item>
         <a-form-item class="formlogin__submit">
-          <a-button @click="onSubmit()"> Sign Up </a-button>
+          <a-button @click="onSubmit()" class="demo5"> Sign Up </a-button>
           <a-anchor-link
             href="#components-anchor-demo-basic"
             title="Terms & conditions"
@@ -34,6 +34,7 @@
 import { RuleObject } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
 import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
+import { useRoute, useRouter } from 'vue-router'
 export default {
   name: 'Formlogin',
   setup () {
@@ -46,9 +47,9 @@ export default {
     })
     const validatorEmail = async (rule: RuleObject, value: string) => {
       const datas: any[] = await get()
-      const find = datas.find((item) => item.email === value)
+      const find = datas.find((item) => item.email !== value)
       if (find) {
-        return Promise.reject(new Error('Email already exists'))
+        return Promise.reject(new Error('email is not correct'))
       } else if (value === '') {
         return Promise.reject(new Error('Please input the Email again'))
       } else {
@@ -56,8 +57,10 @@ export default {
       }
     }
     const validatePass = async (rule: RuleObject, value: string) => {
-      if (value === '') {
-        return Promise.reject(new Error('Please input the password'))
+      const datas: any[] = await get()
+      const find = datas.find((item) => item.password !== value)
+      if (find) {
+        return Promise.reject(new Error('password is not correct'))
       } else if (value.length < 6) {
         return Promise.reject(new Error('Password is too short'))
       } else {
@@ -80,14 +83,14 @@ export default {
         }
       ]
     })
+    const router = useRouter()
     const onSubmit = () => {
       formRef.value.validate().then(async () => {
-        const datas: any[] = await get()
-        console.log('datas', datas)
+        // const datas: any[] = await get()
+        // console.log('datas', datas)
       })
+      router.push({ name: 'demo5' })
     }
-    // const user = ref('uyencuong@gmail.com')
-    // const pass = ref('123456')
     return {
       formRef,
       rules,
