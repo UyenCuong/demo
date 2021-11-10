@@ -1,4 +1,4 @@
-/* eslint-disable no-undef */
+
 <template>
   <a-row class="rowcontent">
     <a-col :span="12">
@@ -74,12 +74,7 @@ export default {
     const rules = reactive({
       email: [
         {
-          type: 'email',
-          message: 'The input is not valid E-mail!'
-        },
-        {
-          required: true,
-          message: 'Please input your E-mail!'
+          required: true
           // validator: validatorEmail
         }
       ],
@@ -122,6 +117,17 @@ export default {
             alert('Email already exists')
           }
         }
+        // const validateEmail = async (rule: RuleObject, value: string) => {
+        //   for (let index = 0; index < datas.length; index++) {
+        //     if (dataForm.email === datas[index].email) {
+        //       return Promise.reject(new Error('Email already exists'))
+        //     } else if (value === '') {
+        //       return Promise.reject(new Error('Please input the password'))
+        //     } else {
+        //       return Promise.resolve()
+        //     }
+        //   }
+        // }
       })
     }
     return {
