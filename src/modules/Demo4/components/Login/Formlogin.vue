@@ -4,7 +4,7 @@
       <a-image
         class="image"
         :width="300"
-        src="https://i.pinimg.com/originals/48/d5/eb/48d5ebb5c96aa214ee2c585dcd5b0761.jpg"
+        src="https://vaithuhayho.com/wp-content/uploads/2021/04/hinh-anh-meo-de-thuong-4.jpg"
       />
     </a-col>
     <a-col :span="12" class="formlogin">
@@ -19,19 +19,19 @@
         >
           <a-input type="password" v-model:value="dataForm.password" />
         </a-form-item>
-        <div v-if="title" class="title">Incorrect email or password</div>
         <a-form-item class="formlogin__submit">
-          <a-button @click="onSubmit()" class="demo5"> Sign Up </a-button>
-          <a-anchor-link
-            href="#components-anchor-demo-basic"
-            title="Terms & conditions"
-          />
+          <a-button @click="onSubmit()" class="demo5 formlogin__submit--btn"> Login </a-button>
+           <a-button @click="onSubmitsignup()" class="register"> Sign Up </a-button>
+           <div class="container-fluid">
+            <router-view />
+          </div>
         </a-form-item>
       </a-form>
     </a-col>
   </a-row>
 </template>
 <script lang="ts">
+import { RuleObject, ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
 import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
 import { useRoute, useRouter } from 'vue-router'
@@ -46,39 +46,76 @@ export default {
       email: '',
       password: ''
     })
+    const validatePassword = async (rule: RuleObject, value: string) => {
+      const datas: any[] = await get()
+      const findPassword = datas.find((item) => item.password !== dataForm.password)
+      if (value === '') {
+        return Promise.reject(new Error('Please input the Email again'))
+      } else if (findPassword) {
+        return Promise.reject(new Error('Password is incorrect'))
+      } else {
+        return Promise.resolve()
+      }
+    }
+    const validatorEmaillogin = async (rule: RuleObject, value: string) => {
+      const datas: any[] = await get()
+      const findEmail = datas.find((item) => item.email !== dataForm.email)
+      if (value === '') {
+        return Promise.reject(new Error('Please input the Email again'))
+      } else if (findEmail) {
+        return Promise.reject(new Error('Email is incorrect'))
+      } else {
+        return Promise.resolve()
+      }
+    }
     const rules = reactive({
       email: [
         {
           required: true,
-          trigger: 'change'
+          trigger: 'change',
+          validator: validatorEmaillogin
         }
       ],
       password: [
         {
           required: true,
-          trigger: 'change'
+          trigger: 'change',
+          validator: validatePassword
         }
       ]
     })
     const onSubmit = async () => {
-      const datas: any[] = await get()
-      const findEmail = datas.find((item) => item.email === dataForm.email)
-      const findPassword = datas.find(
-        (item) => item.password === dataForm.password
-      )
-      console.log('dataForm.email', dataForm.email)
-      if (findEmail && findPassword) {
-        router.push({ name: 'demo5' })
-      } else {
-        title.value = true
-      }
+      // const datas: any[] = await get()
+      // const findEmail = datas.find((item) => item.email === dataForm.email)
+      // const findPassword = datas.find(
+      //   (item) => item.password === dataForm.password
+      // )
+      // console.log('dataForm.email', dataForm.email)
+      // console.log('dataForm.password', dataForm.password)
+      // if (findEmail && findPassword) {
+      //   router.push({ name: 'demo5' })
+      // } else {
+      //   title.value = true
+      // }
+      formRef.value.validate()
+        .then(async () => {
+          window.localStorage.setItem('user', JSON.stringify(user))
+          router.push({ name: 'demo5' })
+        })
+        // .catch(async () => {
+        //   return Promise.reject(new Error('Incorrect email or password'))
+        // })
+    }
+    const onSubmitsignup = () => {
+      router.push({ name: 'register' })
     }
     return {
       formRef,
       dataForm,
       onSubmit,
       rules,
-      title
+      title,
+      onSubmitsignup
     }
   }
 }
@@ -99,6 +136,9 @@ export default {
   .title {
     color: rgb(238, 27, 27);
     text-align: center;
+  }
+  .formlogin__submit--btn {
+    margin-top: -2px;
   }
   .formlogin {
     background-color: $background-white;

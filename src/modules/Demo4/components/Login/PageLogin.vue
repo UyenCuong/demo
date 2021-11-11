@@ -13,8 +13,8 @@
 import { ref } from 'vue'
 export default {
   setup () {
-    const sign = ref<string>('SIGN UP FORM(CODED)')
-    const based = ref<string>('Based on Sign Up Design #39 by Denis Abdullin')
+    const sign = ref<string>('LOGIN FORM(CODED)')
+    const based = ref<string>('Based on login Design #39 by Denis Abdullin')
     return {
       sign,
       based

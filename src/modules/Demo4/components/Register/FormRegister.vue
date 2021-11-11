@@ -28,10 +28,10 @@
           <div class="container-fluid">
             <router-view />
           </div>
-          <a-anchor-link
-            href="#components-anchor-demo-basic"
-            title="Terms & conditions"
-          />
+           <a-button @click="onSubmitlogin()" class="loginrt"> Login </a-button>
+           <div class="container-fluid">
+            <router-view />
+          </div>
         </a-form-item>
       </a-form>
     </a-col>
@@ -121,11 +121,15 @@ export default {
       //   router.push({ name: 'login' })
       // }
     }
+    const onSubmitlogin = () => {
+      router.push({ name: 'login' })
+    }
     return {
       formRef,
       rules,
       dataForm,
-      onSubmit
+      onSubmit,
+      onSubmitlogin
     }
   }
 }

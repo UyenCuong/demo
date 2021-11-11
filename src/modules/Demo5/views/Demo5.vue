@@ -33,6 +33,10 @@ export default {
     Slider,
     ContentHeader,
     Content
+  },
+  setup () {
+    const str = () =>
+      JSON.stringify(window.localStorage.getItem('user'))
   }
 }
 </script>
