@@ -18,8 +18,8 @@
           name="password"
         >
           <a-input type="password" v-model:value="dataForm.password" />
-           </a-form-item>
-            <div v-if="title">Email hoặc Password không chính xác</div>
+        </a-form-item>
+        <div v-if="title" class="title">Incorrect email or password</div>
         <a-form-item class="formlogin__submit">
           <a-button @click="onSubmit()" class="demo5"> Sign Up </a-button>
           <a-anchor-link
@@ -45,7 +45,6 @@ export default {
     const dataForm = reactive({
       email: '',
       password: ''
-
     })
     const rules = reactive({
       email: [
@@ -64,7 +63,9 @@ export default {
     const onSubmit = async () => {
       const datas: any[] = await get()
       const findEmail = datas.find((item) => item.email === dataForm.email)
-      const findPassword = datas.find((item) => item.password === dataForm.password)
+      const findPassword = datas.find(
+        (item) => item.password === dataForm.password
+      )
       console.log('dataForm.email', dataForm.email)
       if (findEmail && findPassword) {
         router.push({ name: 'demo5' })
@@ -94,6 +95,10 @@ export default {
       border-bottom-left-radius: $boder-radiuss;
       margin: 0;
     }
+  }
+  .title {
+    color: rgb(238, 27, 27);
+    text-align: center;
   }
   .formlogin {
     background-color: $background-white;
