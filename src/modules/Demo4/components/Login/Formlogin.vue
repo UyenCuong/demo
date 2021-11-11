@@ -19,6 +19,7 @@
         >
           <a-input type="password" v-model:value="dataForm.password" />
            </a-form-item>
+            <div v-if="title">Email hoặc Password không chính xác</div>
         <a-form-item class="formlogin__submit">
           <a-button @click="onSubmit()" class="demo5"> Sign Up </a-button>
           <a-anchor-link
@@ -31,13 +32,14 @@
   </a-row>
 </template>
 <script lang="ts">
-import { RuleObject } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
 import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
 import { useRoute, useRouter } from 'vue-router'
 export default {
   name: 'Formlogin',
   setup () {
+    const title = ref<boolean>(false)
+    const router = useRouter()
     const { get } = useIndexedDB()
     const formRef = ref()
     const dataForm = reactive({
@@ -45,57 +47,37 @@ export default {
       password: ''
 
     })
-    const validatorEmail = async (rule: RuleObject, value: string) => {
-      const datas: any[] = await get()
-      const find = datas.find((item) => item.email !== value)
-      if (find) {
-        return Promise.reject(new Error('email is not correct'))
-      } else if (value === '') {
-        return Promise.reject(new Error('Please input the Email again'))
-      } else {
-        return Promise.resolve()
-      }
-    }
-    const validatePass = async (rule: RuleObject, value: string) => {
-      const datas: any[] = await get()
-      const find = datas.find((item) => item.password !== value)
-      if (find) {
-        return Promise.reject(new Error('password is not correct'))
-      } else if (value.length < 6) {
-        return Promise.reject(new Error('Password is too short'))
-      } else {
-        return Promise.resolve()
-      }
-    }
     const rules = reactive({
       email: [
         {
           required: true,
-          trigger: 'change',
-          validator: validatorEmail
+          trigger: 'change'
         }
       ],
       password: [
         {
           required: true,
-          trigger: 'change',
-          validator: validatePass
+          trigger: 'change'
         }
       ]
     })
-    const router = useRouter()
-    const onSubmit = () => {
-      formRef.value.validate().then(async () => {
-        // const datas: any[] = await get()
-        // console.log('datas', datas)
-      })
-      router.push({ name: 'demo5' })
+    const onSubmit = async () => {
+      const datas: any[] = await get()
+      const findEmail = datas.find((item) => item.email === dataForm.email)
+      const findPassword = datas.find((item) => item.password === dataForm.password)
+      console.log('dataForm.email', dataForm.email)
+      if (findEmail && findPassword) {
+        router.push({ name: 'demo5' })
+      } else {
+        title.value = true
+      }
     }
     return {
       formRef,
-      rules,
       dataForm,
-      onSubmit
+      onSubmit,
+      rules,
+      title
     }
   }
 }
