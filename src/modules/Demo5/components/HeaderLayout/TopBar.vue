@@ -31,12 +31,14 @@
               class="icontopbar"
             ></app-icon>
             <app-icon :name="'account-circle'" class="icontopbar"></app-icon>
+             <a-button type="primary">Đăng xuất</a-button>
           </a-menu-item>
         </div>
       </div>
     </a-menu>
 </template>
 <script lang="ts">
+
 </script>
 
 <style lang="scss">

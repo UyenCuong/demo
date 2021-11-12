@@ -20,9 +20,13 @@
           <a-input type="password" v-model:value="dataForm.password" />
         </a-form-item>
         <a-form-item class="formlogin__submit">
-          <a-button @click="onSubmit()" class="demo5 formlogin__submit--btn"> Login </a-button>
-           <a-button @click="onSubmitsignup()" class="register"> Sign Up </a-button>
-           <div class="container-fluid">
+          <a-button @click="onSubmit()" class="demo5 formlogin__submit--btn">
+            Login
+          </a-button>
+          <a-button @click="onSubmitsignup()" class="register">
+            Sign Up
+          </a-button>
+          <div class="container-fluid">
             <router-view />
           </div>
         </a-form-item>
@@ -31,10 +35,10 @@
   </a-row>
 </template>
 <script lang="ts">
-import { RuleObject, ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
-import { ref, reactive, toRaw } from 'vue'
+import { RuleObject } from 'ant-design-vue/es/form/interface'
+import { ref, reactive } from 'vue'
 import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 export default {
   name: 'Formlogin',
   setup () {
@@ -48,7 +52,9 @@ export default {
     })
     const validatePassword = async (rule: RuleObject, value: string) => {
       const datas: any[] = await get()
-      const findPassword = datas.find((item) => item.password === dataForm.password)
+      const findPassword = datas.find(
+        (item) => item.password === dataForm.password
+      )
       if (value === '') {
         return Promise.reject(new Error('Please input the Email again'))
       } else if (!findPassword) {
@@ -85,26 +91,10 @@ export default {
       ]
     })
     const onSubmit = async () => {
-      // const datas: any[] = await get()
-      // const findEmail = datas.find((item) => item.email === dataForm.email)
-      // const findPassword = datas.find(
-      //   (item) => item.password === dataForm.password
-      // )
-      // console.log('dataForm.email', dataForm.email)
-      // console.log('dataForm.password', dataForm.password)
-      // if (findEmail && findPassword) {
-      //   router.push({ name: 'demo5' })
-      // } else {
-      //   title.value = true
-      // }
-      formRef.value.validate()
-        .then(async () => {
-          window.localStorage.setItem('user', JSON.stringify(dataForm))
-          router.push({ name: 'demo5' })
-        })
-        // .catch(async () => {
-        //   return Promise.reject(new Error('Incorrect email or password'))
-        // })
+      formRef.value.validate().then(async () => {
+        window.localStorage.setItem('user', JSON.stringify(dataForm))
+        router.push({ name: 'demo5' })
+      })
     }
     const onSubmitsignup = () => {
       router.push({ name: 'register' })
