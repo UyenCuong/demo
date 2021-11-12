@@ -21,6 +21,7 @@
 </template>
 
 <script>
+import { onMounted } from 'vue'
 import TopBar from '@/modules/Demo5/components/HeaderLayout/TopBar.vue'
 import SliderBar from '@/modules/Demo5/components/Slider/SliderBar.vue'
 import Slider from '@/modules/Demo5/components/Slider/Slider.vue'
@@ -35,8 +36,9 @@ export default {
     Content
   },
   setup () {
-    const str = () =>
-      JSON.stringify(window.localStorage.getItem('user'))
+    onMounted(() => {
+      const str = JSON.stringify(window.localStorage.getItem('user'))
+    })
   }
 }
 </script>
