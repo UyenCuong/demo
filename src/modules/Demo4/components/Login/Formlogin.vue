@@ -99,7 +99,7 @@ export default {
       // }
       formRef.value.validate()
         .then(async () => {
-          window.localStorage.getItem('user')
+          window.localStorage.setItem('user', JSON.stringify('value'))
           router.push({ name: 'demo5' })
         })
         // .catch(async () => {
