@@ -21,12 +21,12 @@ export default {
     //   // onLogin,
     //   onRegister
     // }
-    onMounted(() => {
-      const str = window.localStorage.getItem('user')
-      if (str) {
-        router.push({ name: 'demo5' })
-      }
-    })
+    // onMounted(() => {
+    //   const str = window.localStorage.getItem('user')
+    //   if (str) {
+    //     router.push({ name: 'demo5' })
+    //   }
+    // })
   }
 }
 </script>
