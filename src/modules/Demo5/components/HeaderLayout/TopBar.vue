@@ -38,10 +38,13 @@
     </a-menu>
 </template>
 <script lang="ts">
+import { useRouter } from 'vue-router'
 export default {
   setup () {
+    const router = useRouter()
     const onSubmitDX = () => {
-      console.log(123)
+      window.localStorage.removeItem('user')
+      router.push({ name: 'register' })
     }
     return {
       onSubmitDX

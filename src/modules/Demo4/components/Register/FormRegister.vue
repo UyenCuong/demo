@@ -28,8 +28,8 @@
           <div class="container-fluid">
             <router-view />
           </div>
-           <a-button @click="onSubmitlogin()" class="loginrt"> Login </a-button>
-           <div class="container-fluid">
+          <a-button @click="onSubmitlogin()" class="loginrt"> Login </a-button>
+          <div class="container-fluid">
             <router-view />
           </div>
         </a-form-item>
@@ -38,10 +38,10 @@
   </a-row>
 </template>
 <script lang="ts">
-import { RuleObject, ValidateErrorEntity } from 'ant-design-vue/es/form/interface'
+import { RuleObject } from 'ant-design-vue/es/form/interface'
 import { ref, reactive, toRaw } from 'vue'
 import useIndexedDB from '@/modules/Demo4/composables/useIndexedDB'
-import { useRoute, useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
 export default {
   name: 'Formlogin',
   setup () {
@@ -114,12 +114,6 @@ export default {
         })
         router.push({ name: 'login' })
       })
-      // formRef.value.validate().catch((error: ValidateErrorEntity<any>) => {
-      //   console.log('error', error)
-      // })
-      // if (dataForm = true) {
-      //   router.push({ name: 'login' })
-      // }
     }
     const onSubmitlogin = () => {
       router.push({ name: 'login' })
