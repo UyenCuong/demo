@@ -18,7 +18,6 @@
 </template>
 <script lang="ts">
 import { computed } from 'vue'
-// import { toPascalCase } from '@/common/helpers/string-utils'
 import icons from '@/core/components/Icons/mdi'
 export default {
   setup (props: any) {
