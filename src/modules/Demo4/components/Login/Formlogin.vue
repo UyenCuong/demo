@@ -48,10 +48,10 @@ export default {
     })
     const validatePassword = async (rule: RuleObject, value: string) => {
       const datas: any[] = await get()
-      const findPassword = datas.find((item) => item.password !== dataForm.password)
+      const findPassword = datas.find((item) => item.password === dataForm.password)
       if (value === '') {
         return Promise.reject(new Error('Please input the Email again'))
-      } else if (findPassword) {
+      } else if (!findPassword) {
         return Promise.reject(new Error('Password is incorrect'))
       } else {
         return Promise.resolve()
@@ -59,10 +59,10 @@ export default {
     }
     const validatorEmaillogin = async (rule: RuleObject, value: string) => {
       const datas: any[] = await get()
-      const findEmail = datas.find((item) => item.email !== dataForm.email)
+      const findEmail = datas.find((item) => item.email === dataForm.email)
       if (value === '') {
         return Promise.reject(new Error('Please input the Email again'))
-      } else if (findEmail) {
+      } else if (!findEmail) {
         return Promise.reject(new Error('Email is incorrect'))
       } else {
         return Promise.resolve()
@@ -99,7 +99,7 @@ export default {
       // }
       formRef.value.validate()
         .then(async () => {
-          window.localStorage.setItem('user', JSON.stringify('value'))
+          window.localStorage.setItem('user', JSON.stringify(dataForm))
           router.push({ name: 'demo5' })
         })
         // .catch(async () => {
